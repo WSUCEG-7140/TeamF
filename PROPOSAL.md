@@ -4,7 +4,7 @@
 
 ### Team Members:
 <ul><li>Brian Davis - davis.443@wright.edu</li>
-<li>Shanmukh Mundra - mundra.2@wright.edu</li>
+<li>Shanmukha Mundra - mundra.2@wright.edu</li>
 <li>Manasa Cheemala - cheemala.3@wright.edu</li></ul><br>
 
 ## Project Idea
