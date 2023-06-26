@@ -10,6 +10,17 @@ public class Authorizer implements iAuthorizer {
 
     private final String algorithm;
 
+    public Authorizer() {
+        algorithm = "SHA-512";
+    }
+
+    /**
+     * Overloaded constructor takes a String as input to allow testing of the exception
+     * handling within the computeHash method
+     *
+     * @param algorithm         The name of the algorithm that MessageDigest will use
+     *                          to compute hashes
+     */
     public Authorizer(String algorithm) {
         this.algorithm = algorithm;
     }

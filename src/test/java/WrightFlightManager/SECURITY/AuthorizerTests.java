@@ -11,7 +11,7 @@ class AuthorizerTests {
     void computeHash() {
 
         // Dependency injected for instance
-        iAuthorizer auth = new Authorizer("SHA-512");
+        iAuthorizer auth = new Authorizer();
         iAuthorizer badAuth = new Authorizer("WRONG");
 
         // Correct values provided
@@ -48,7 +48,7 @@ class AuthorizerTests {
     void createSalt() throws NoSuchAlgorithmException, NoSuchProviderException {
 
         // Dependency injected for instance
-        iAuthorizer auth = new Authorizer("SHA-512");
+        iAuthorizer auth = new Authorizer();
 
         // Assertions
         assertNotNull(auth.createSalt());
@@ -62,7 +62,7 @@ class AuthorizerTests {
     void verifyHashMatch() {
 
         // Dependency injected for instance
-        iAuthorizer auth = new Authorizer("SHA-512");
+        iAuthorizer auth = new Authorizer();
 
         // Correct values provided
         String checkHash = "c2d4055d872781c388c9c295ecc97796ab8214fe33e14cf2df7e285edbd2734589a65e483289d73b0d8bdb0db43e1b7fbd94e35ce32a8301db536d34d5b94f5d";
