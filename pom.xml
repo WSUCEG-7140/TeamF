@@ -28,4 +28,8 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <testSourceDirectory>src/test/</testSourceDirectory>
+    </build>
+
 </project>
