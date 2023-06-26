@@ -1,9 +1,18 @@
 package WrightFlightManager.SECURITY;
 
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
+import java.security.SecureRandom;
+import java.util.Arrays;
 
 public class Authorizer implements iAuthorizer {
+
+    private final String algorithm;
+
+    public Authorizer(String algorithm) {
+        this.algorithm = algorithm;
+    }
 
     /**
      * Takes a plain text password and a salt as input, and returns a salted/hashed
@@ -17,7 +26,33 @@ public class Authorizer implements iAuthorizer {
      * @return A hash of the password and salt
      */
     public String computeHash(String plaintextPassword, String salt) {
-        return "TODO";
+        String computedHash = null;
+
+        try {
+
+            // Create MessageDigest instance for SHA-512 algorithm
+            MessageDigest md = MessageDigest.getInstance(algorithm);
+
+            // Update SHA-512 instance with salt as bytes and get hashed bytes for plaintextPassword
+            md.update(salt.getBytes());
+            byte[] bytes = md.digest(plaintextPassword.getBytes());
+
+            // Store hashed byte values as chars in a StringBuilder
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bytes) {
+                sb.append(Integer.toString((b & 0xff) + 0x100, 16)
+                        .substring(1));
+            }
+
+            // Set output value to computed hash chars
+            computedHash = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e) {
+            // Ignored
+        }
+
+        // Returns hashed value as a String or null if hash failed
+        return computedHash;
     }
 
     /**
@@ -29,7 +64,18 @@ public class Authorizer implements iAuthorizer {
      * @throws NoSuchProviderException
      */
     public String createSalt() throws NoSuchAlgorithmException, NoSuchProviderException {
-        return null;
+
+        // Call to SecureRandom generator
+        SecureRandom sr = SecureRandom.getInstance("SHA1PRNG", "SUN");
+
+        // Initialize array for salt
+        byte[] salt = new byte[16];
+
+        // Get a random salt and store bytes in salt array
+        sr.nextBytes(salt);
+
+        // Return salt array in string format
+        return Arrays.toString(salt);
     }
 
     /**
@@ -43,6 +89,6 @@ public class Authorizer implements iAuthorizer {
      * @return
      */
     public boolean verifyHashMatch(String storedHash, String storedSalt, String plaintextPassword) {
-        return false;
+        return storedHash.equals(computeHash(plaintextPassword, storedSalt));
     }
 }
