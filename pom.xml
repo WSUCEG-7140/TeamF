@@ -23,7 +23,7 @@
     </dependencies>
 
     <build>
-        <testSourceDirectory>src/test/java/WrightFlightManager</testSourceDirectory>
+        <testSourceDirectory>src/test/java/WrightFlightManager/*</testSourceDirectory>
     </build>
 
 </project>
