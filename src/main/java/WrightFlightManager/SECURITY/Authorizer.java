@@ -71,8 +71,8 @@ public class Authorizer implements iAuthorizer {
      * and casts it to a String
      *
      * @return The random salt values
-     * @throws NoSuchAlgorithmException
-     * @throws NoSuchProviderException
+     * @throws NoSuchAlgorithmException Occurs if the salt generation algorithm is missing
+     * @throws NoSuchProviderException Occurs if the algorithm provider is missing
      */
     public String createSalt() throws NoSuchAlgorithmException, NoSuchProviderException {
 
@@ -97,7 +97,8 @@ public class Authorizer implements iAuthorizer {
      * @param storedHash        A hash stored in a local file.
      * @param storedSalt        A salt stored in a local file.
      * @param plaintextPassword A password provided by a user.
-     * @return
+     * @return                  Boolean value representing if the password's hash matches the
+     *                          hash for the stored password
      */
     public boolean verifyHashMatch(String storedHash, String storedSalt, String plaintextPassword) {
         return storedHash.equals(computeHash(plaintextPassword, storedSalt));
