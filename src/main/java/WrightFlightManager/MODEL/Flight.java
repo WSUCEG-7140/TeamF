@@ -57,15 +57,15 @@ public class Flight {
      * @param firstClassSeatsFilled An integer representing the number of first class seats already filled
      * @param coachClassSeatsFilled An integer representing the number of coach class seats already filled
      */
-    public Flight(String flightNumber, String originAirport, String destinationAirport, String planeType, Date plannedDeparture, Date plannedArrival, String departureGate, String arrivalGate, int firstClassSeatsFilled, int coachClassSeatsFilled) {
+    public Flight(String flightNumber, String originAirport, String destinationAirport, String planeType, Date plannedDeparture, Date plannedArrival, Date actualDeparture, Date actualArrival, String departureGate, String arrivalGate, int firstClassSeatsFilled, int coachClassSeatsFilled) {
         this.flightNumber = flightNumber;
         this.originAirport = originAirport;
         this.destinationAirport = destinationAirport;
         this.planeType = planeType;
         this.plannedDeparture = plannedDeparture;
         this.plannedArrival = plannedArrival;
-        this.actualDeparture = null;
-        this.actualArrival = null;
+        this.actualDeparture = actualDeparture;
+        this.actualArrival = actualArrival;
         this.departureGate = departureGate;
         this.arrivalGate = arrivalGate;
         this.firstClassSeatsFilled = firstClassSeatsFilled;
