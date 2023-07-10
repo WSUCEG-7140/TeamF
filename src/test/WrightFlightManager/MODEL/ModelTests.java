@@ -307,24 +307,44 @@ class ModelTests {
     /**
      * Tests for the Plane Class
      */
+    private final String typeOfPlane = "G6";
+    private int firstClassCapacity = 5;
+    private int coachClassCapacity = 0;
+
+    Plane testPlane = new Plane(typeOfPlane, firstClassCapacity, coachClassCapacity);
+
     @Test
     void getPlaneType() {
+        assertEquals("G6", testPlane.getPlaneType());
+        assertNotEquals("G", testPlane.getPlaneType());
+        assertNotEquals("6", testPlane.getPlaneType());
+        assertNotEquals("g6", testPlane.getPlaneType());
     }
 
     @Test
     void getFirstClassSeatCapacity() {
+        assertEquals(5, testPlane.getFirstClassSeatCapacity());
+        assertNotEquals(0, testPlane.getFirstClassSeatCapacity());
     }
 
     @Test
     void setFirstClassSeatCapacity() {
+        testPlane.setFirstClassSeatCapacity(2);
+        assertEquals(2, testPlane.getFirstClassSeatCapacity());
+        assertNotEquals(5, testPlane.getFirstClassSeatCapacity());
     }
 
     @Test
     void getCoachClassSeatCapacity() {
+        assertEquals(0, testPlane.getCoachClassSeatCapacity());
+        assertNotEquals(5, testPlane.getCoachClassSeatCapacity());
     }
 
     @Test
     void setCoachClassSeatCapacity() {
+        testPlane.setCoachClassSeatCapacity(6);
+        assertEquals(6, testPlane.getCoachClassSeatCapacity());
+        assertNotEquals(0, testPlane.getCoachClassSeatCapacity());
     }
 
     /**
