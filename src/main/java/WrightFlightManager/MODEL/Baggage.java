@@ -23,6 +23,28 @@ public class Baggage {
         this.username = username;
         this.bagOriginAirport = bagOriginAirport;
         this.bagDestinationAirport = bagDestinationAirport;
+        this.weightInPounds = 0;
+    }
+
+    /**
+     * The Baggage parameterized constructor creates a Baggage object for Baggage on file that was already
+     * checked in at the airport for the flight
+     * @param bagId                 An integer representing a unique ID number for a bag
+     * @param username              A String representing the username of whom the baggage belongs to
+     * @param bagOriginAirport      A String representing the three-letter airport code of origin
+     * @param bagDestinationAirport A String representing the three-letter airport code of destination
+     * @param checkedInDateTime     A Date (including time) representing when the bag was checked in at the
+     *                              airport of origin
+     * @param weightInPounds        A double representing the wait of the bag (in pounds) when it was checked
+     *                              in at the airport of origin
+     */
+    public Baggage(int bagId, String username, String bagOriginAirport, String bagDestinationAirport, Date checkedInDateTime, double weightInPounds) {
+        this.bagId = bagId;
+        this.username = username;
+        this.bagOriginAirport = bagOriginAirport;
+        this.bagDestinationAirport = bagDestinationAirport;
+        this.checkedInDateTime = checkedInDateTime;
+        this.weightInPounds = weightInPounds;
     }
 
     /**
@@ -51,27 +73,11 @@ public class Baggage {
     }
 
     /**
-     * The setBagOriginAirport method takes a String as a parameter to set the airport of origin
-     * @param bagOriginAirport  A String representing the three-letter airport code of origin
-     */
-    public void setBagOriginAirport(String bagOriginAirport) {
-        this.bagOriginAirport = bagOriginAirport;
-    }
-
-    /**
      * The getBagDestinationAirport method takes no parameters and returns the Baggage's airport of destination
      * @return  A String representing the three-letter airport code of destination
      */
     public String getBagDestinationAirport() {
         return bagDestinationAirport;
-    }
-
-    /**
-     * The setBagDestinationAirport method takes a String as a parameter to set the airport of destination
-     * @param bagDestinationAirport A String representing the three-letter airport code of destination
-     */
-    public void setBagDestinationAirport(String bagDestinationAirport) {
-        this.bagDestinationAirport = bagDestinationAirport;
     }
 
     /**
@@ -111,7 +117,7 @@ public class Baggage {
 
     /**
      * The setWeightInPounds method takes a double as a parameter to set the weightInPounds for the Baggage
-     * @param weightInPounds    A double representing the weight of the Baggage in pounds 
+     * @param weightInPounds    A double representing the weight of the Baggage in pounds
      */
     public void setWeightInPounds(double weightInPounds) {
         this.weightInPounds = weightInPounds;
