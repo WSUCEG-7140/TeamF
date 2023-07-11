@@ -37,6 +37,101 @@ class ModelTests {
         assertNotEquals("TEST AIRPORT", testAirport.getAirportName());
         assertNotEquals("", testAirport.getAirportName());
     }
+
+    /**
+     * Tests for the Baggage Class
+     */
+    private final int bagId = 1;
+    private final String username = "TESTUSER";
+    private String bagOriginAirport = "XXX";
+    private String bagDestinationAirport = "ZZZ";
+    private Date checkedInTime = new Date(123, 7, 15, 15, 45, 30);
+    private double weightInPounds = 38.75;
+
+    Baggage testNewBag = new Baggage(bagId, username, bagOriginAirport, bagDestinationAirport);
+    Baggage testExistingBag = new Baggage(bagId, username, bagOriginAirport, bagDestinationAirport, checkedInTime, weightInPounds);
+
+    @Test
+    void getBagId() {
+        assertEquals(1, testNewBag.getBagId());
+        assertEquals(1, testExistingBag.getBagId());
+        assertNotEquals(2, testNewBag.getBagId());
+        assertNotEquals(2, testExistingBag.getBagId());
+    }
+
+    @Test
+    void getUsernameForBaggage() {
+        assertEquals("TESTUSER", testNewBag.getUsername());
+        assertEquals("TESTUSER", testExistingBag.getUsername());
+        assertNotEquals("TestUser", testNewBag.getUsername());
+        assertNotEquals("TestUser", testExistingBag.getUsername());
+        assertNotEquals("TEST", testNewBag.getUsername());
+        assertNotEquals("TEST", testExistingBag.getUsername());
+        assertNotEquals("TESTUSER ", testNewBag.getUsername());
+        assertNotEquals("TESTUSER ", testExistingBag.getUsername());
+        assertNotEquals("", testNewBag.getUsername());
+        assertNotEquals("", testExistingBag.getUsername());
+    }
+
+    @Test
+    void getBagOriginAirport() {
+        assertEquals("XXX", testNewBag.getBagOriginAirport());
+        assertEquals("XXX", testExistingBag.getBagOriginAirport());
+        assertNotEquals("xxx", testNewBag.getBagOriginAirport());
+        assertNotEquals("xxx", testExistingBag.getBagOriginAirport());
+        assertNotEquals("XX", testNewBag.getBagOriginAirport());
+        assertNotEquals("XX", testExistingBag.getBagOriginAirport());
+        assertNotEquals("", testNewBag.getBagOriginAirport());
+        assertNotEquals("", testExistingBag.getBagOriginAirport());
+    }
+
+    @Test
+    void getBagDestinationAirport() {
+        assertEquals("ZZZ", testNewBag.getBagDestinationAirport());
+        assertEquals("ZZZ", testExistingBag.getBagDestinationAirport());
+        assertNotEquals("zzz", testNewBag.getBagDestinationAirport());
+        assertNotEquals("zzz", testExistingBag.getBagDestinationAirport());
+        assertNotEquals("ZZ", testNewBag.getBagDestinationAirport());
+        assertNotEquals("ZZ", testExistingBag.getBagDestinationAirport());
+        assertNotEquals("", testNewBag.getBagDestinationAirport());
+        assertNotEquals("", testExistingBag.getBagDestinationAirport());
+    }
+
+    @Test
+    void getCheckedInDateTime() {
+        assertNull(testNewBag.getCheckedInDateTime());
+        assertEquals("Tue Aug 15 15:45:30 EDT 2023", testExistingBag.getCheckedInDateTime().toString());
+    }
+
+    @Test
+    void setCheckedInDateTime() {
+        testNewBag.setCheckedInDateTime();
+        assertNotNull(testNewBag.getCheckedInDateTime());
+    }
+
+    @Test
+    void testSetCheckedInDateTime() {
+        Date newCheckIn = new Date(123, 7, 16, 12, 0, 0);
+        testExistingBag.setCheckedInDateTime(newCheckIn);
+        assertEquals("Wed Aug 16 12:00:00 EDT 2023", testExistingBag.getCheckedInDateTime().toString());
+    }
+
+    @Test
+    void getWeightInPounds() {
+        assertEquals(0, testNewBag.getWeightInPounds());
+        assertEquals(38.75, testExistingBag.getWeightInPounds());
+    }
+
+    @Test
+    void setWeightInPounds() {
+        testNewBag.setWeightInPounds(10.0);
+        testExistingBag.setWeightInPounds(35);
+        assertEquals(10, testNewBag.getWeightInPounds());
+        assertEquals(35.0, testExistingBag.getWeightInPounds());
+        assertNotEquals(0, testNewBag.getWeightInPounds());
+        assertNotEquals(38.75, testExistingBag.getWeightInPounds());
+    }
+
     /**
      * Tests for the Flight Class
      */
