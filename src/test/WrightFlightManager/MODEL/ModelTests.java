@@ -2,6 +2,7 @@ package WrightFlightManager.MODEL;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -45,7 +46,7 @@ class ModelTests {
     private final String username = "TESTUSER";
     private String bagOriginAirport = "XXX";
     private String bagDestinationAirport = "ZZZ";
-    private Date checkedInTime = new Date(123, 7, 15, 15, 45, 30);
+    private Date checkedInTime = new Date(123, Calendar.AUGUST, 15, 15, 45, 30);
     private double weightInPounds = 38.75;
 
     Baggage testNewBag = new Baggage(bagId, username, bagOriginAirport, bagDestinationAirport);
@@ -111,7 +112,7 @@ class ModelTests {
 
     @Test
     void testSetCheckedInDateTime() {
-        Date newCheckIn = new Date(123, 7, 16, 12, 0, 0);
+        Date newCheckIn = new Date(123, Calendar.AUGUST, 16, 12, 0, 0);
         testExistingBag.setCheckedInDateTime(newCheckIn);
         assertEquals("Wed Aug 16 12:00:00 EDT 2023", testExistingBag.getCheckedInDateTime().toString());
     }
@@ -139,10 +140,10 @@ class ModelTests {
     private String originAirport = "XXX";
     private String destinationAirport = "ZZZ";
     private String planeType = "S550";
-    private Date plannedDeparture = new Date(123, 7, 13, 22, 10, 17);
-    private Date plannedArrival = new Date((2023 - 1900), 7, 14, 0, 10, 17);
-    private Date actualDeparture = new Date(123, 7, 13, 17, 30, 17);
-    private Date actualArrival = new Date(123, 7, 13, 19, 50, 00);
+    private Date plannedDeparture = new Date(123, Calendar.AUGUST, 13, 22, 10, 17);
+    private Date plannedArrival = new Date((2023 - 1900), Calendar.AUGUST, 14, 0, 10, 17);
+    private Date actualDeparture = new Date(123, Calendar.AUGUST, 13, 17, 30, 17);
+    private Date actualArrival = new Date(123, Calendar.AUGUST, 13, 19, 50, 0);
     private String departureGate = "A4";
     private String arrivalGate = "B2";
     private int firstClassSeatsFilled = 2;
@@ -249,8 +250,8 @@ class ModelTests {
 
     @Test
     void setPlannedDeparture() {
-        Date newPlannedDepartureA = new Date(123, 7, 13, 17, 10, 17);
-        Date newPlannedDepartureB = new Date(123, 7, 13, 16, 10, 17);
+        Date newPlannedDepartureA = new Date(123, Calendar.AUGUST, 13, 17, 10, 17);
+        Date newPlannedDepartureB = new Date(123, Calendar.AUGUST, 13, 16, 10, 17);
         testFlightA.setPlannedDeparture(newPlannedDepartureA);
         testFlightB.setPlannedDeparture(newPlannedDepartureB);
         assertEquals("Sun Aug 13 17:10:17 EDT 2023", testFlightA.getPlannedDeparture().toString());
@@ -269,8 +270,8 @@ class ModelTests {
 
     @Test
     void setPlannedArrival() {
-        Date newPlannedArrivalA = new Date(123, 7, 13, 19, 10, 17);
-        Date newPlannedArrivalB = new Date(123, 7, 13, 18, 10, 17);
+        Date newPlannedArrivalA = new Date(123, Calendar.AUGUST, 13, 19, 10, 17);
+        Date newPlannedArrivalB = new Date(123, Calendar.AUGUST, 13, 18, 10, 17);
         testFlightA.setPlannedArrival(newPlannedArrivalA);
         testFlightB.setPlannedArrival(newPlannedArrivalB);
         assertEquals("Sun Aug 13 19:10:17 EDT 2023", testFlightA.getPlannedArrival().toString());
@@ -287,8 +288,8 @@ class ModelTests {
 
     @Test
     void setActualDeparture() {
-        Date actualDepartureA = new Date(123, 7, 13, 17, 40, 17);
-        Date actualDepartureB = new Date(123, 7, 13, 16, 40, 17);
+        Date actualDepartureA = new Date(123, Calendar.AUGUST, 13, 17, 40, 17);
+        Date actualDepartureB = new Date(123, Calendar.AUGUST, 13, 16, 40, 17);
         testFlightA.setActualDeparture(actualDepartureA);
         testFlightB.setActualDeparture(actualDepartureB);
         assertNotNull(testFlightA.getActualDeparture());
@@ -305,8 +306,8 @@ class ModelTests {
 
     @Test
     void setActualArrival() {
-        Date actualArrivalA = new Date(123, 7, 13, 20, 00, 00);
-        Date actualArrivalB = new Date(123, 7, 13, 18, 30, 15);
+        Date actualArrivalA = new Date(123, Calendar.AUGUST, 13, 20, 00, 00);
+        Date actualArrivalB = new Date(123, Calendar.AUGUST, 13, 18, 30, 15);
         testFlightA.setActualArrival(actualArrivalA);
         testFlightB.setActualArrival(actualArrivalB);
         assertNotNull(testFlightA.getActualArrival());
