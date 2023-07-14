@@ -103,9 +103,4 @@ class PassengerViewtoGUI extends JFrame implements ActionListener{
             t6.setText("");
         }
     }
-
-    public static void main(String s[])
-    {
-        PassengerViewtoGUI obj=new PassengerViewtoGUI();
-    }
 }
