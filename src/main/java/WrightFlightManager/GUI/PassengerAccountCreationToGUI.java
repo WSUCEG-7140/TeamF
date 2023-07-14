@@ -115,15 +115,5 @@ public class PassengerAccountCreationToGUI extends JFrame {
         departureField.setText("");
         arrivalField.setText("");
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                PassengerAccountCreationToGUI system = new PassengerAccountCreationToGUI();
-                system.setVisible(true);
-            }
-        });
-    }
 }
 
