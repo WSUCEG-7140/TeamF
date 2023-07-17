@@ -1,0 +1,119 @@
+\doxysection{Wright\+Flight\+Manager.\+SECURITY.\+Authorizer Class Reference}
+\hypertarget{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer}{}\label{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer}\index{WrightFlightManager.SECURITY.Authorizer@{WrightFlightManager.SECURITY.Authorizer}}
+Inheritance diagram for Wright\+Flight\+Manager.\+SECURITY.\+Authorizer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_ac11c919af7a369b98c52e64eeed2662c}{Authorizer}} (String algorithm)
+\item 
+String \mbox{\hyperlink{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_a6a1ea5ad66bd4f3a874563951d83ce0c}{compute\+Hash}} (String plaintext\+Password, String salt)
+\item 
+String \mbox{\hyperlink{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_a775be26fd7b8bb1c08f4303e88e740d1}{create\+Salt}} ()  throws No\+Such\+Algorithm\+Exception, No\+Such\+Provider\+Exception 
+\item 
+boolean \mbox{\hyperlink{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_ada0680795a1fb636dc0e886512b06e6f}{verify\+Hash\+Match}} (String stored\+Hash, String stored\+Salt, String plaintext\+Password)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer_a662b1cf83ff529123a89cebc082441de}{compute\+Hash}} (String plaintext\+Password, String salt)
+\item 
+String \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer_a4c3cc0b2fc9625237d003b044b35176c}{create\+Salt}} ()  throws No\+Such\+Algorithm\+Exception, No\+Such\+Provider\+Exception
+\item 
+boolean \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer_a367827780e1e37961a676835030ea5cf}{verify\+Hash\+Match}} (String hash, String salt, String plaintext\+Password)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_ac11c919af7a369b98c52e64eeed2662c}\label{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_ac11c919af7a369b98c52e64eeed2662c} 
+\index{WrightFlightManager.SECURITY.Authorizer@{WrightFlightManager.SECURITY.Authorizer}!Authorizer@{Authorizer}}
+\index{Authorizer@{Authorizer}!WrightFlightManager.SECURITY.Authorizer@{WrightFlightManager.SECURITY.Authorizer}}
+\doxysubsubsection{\texorpdfstring{Authorizer()}{Authorizer()}}
+{\footnotesize\ttfamily Wright\+Flight\+Manager.\+SECURITY.\+Authorizer.\+Authorizer (\begin{DoxyParamCaption}\item[{String}]{algorithm }\end{DoxyParamCaption})}
+
+Overloaded constructor takes a String as input to allow testing of the exception handling within the compute\+Hash method
+
+
+\begin{DoxyParams}{Parameters}
+{\em algorithm} & The name of the algorithm that Message\+Digest will use to compute hashes \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_a6a1ea5ad66bd4f3a874563951d83ce0c}\label{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_a6a1ea5ad66bd4f3a874563951d83ce0c} 
+\index{WrightFlightManager.SECURITY.Authorizer@{WrightFlightManager.SECURITY.Authorizer}!computeHash@{computeHash}}
+\index{computeHash@{computeHash}!WrightFlightManager.SECURITY.Authorizer@{WrightFlightManager.SECURITY.Authorizer}}
+\doxysubsubsection{\texorpdfstring{computeHash()}{computeHash()}}
+{\footnotesize\ttfamily String Wright\+Flight\+Manager.\+SECURITY.\+Authorizer.\+compute\+Hash (\begin{DoxyParamCaption}\item[{String}]{plaintext\+Password,  }\item[{String}]{salt }\end{DoxyParamCaption})}
+
+Takes a plain text password and a salt as input, and returns a salted/hashed password as output
+
+
+\begin{DoxyParams}{Parameters}
+{\em plaintext\+Password} & The password that the user entered. \\
+\hline
+{\em salt} & The salt is a random string of characters that is used as an additional input to a one-\/way function that hashes a password or passphrase. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A hash of the password and salt 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer}{Wright\+Flight\+Manager.\+SECURITY.\+i\+Authorizer}}.
+
+\Hypertarget{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_a775be26fd7b8bb1c08f4303e88e740d1}\label{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_a775be26fd7b8bb1c08f4303e88e740d1} 
+\index{WrightFlightManager.SECURITY.Authorizer@{WrightFlightManager.SECURITY.Authorizer}!createSalt@{createSalt}}
+\index{createSalt@{createSalt}!WrightFlightManager.SECURITY.Authorizer@{WrightFlightManager.SECURITY.Authorizer}}
+\doxysubsubsection{\texorpdfstring{createSalt()}{createSalt()}}
+{\footnotesize\ttfamily String Wright\+Flight\+Manager.\+SECURITY.\+Authorizer.\+create\+Salt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws No\+Such\+Algorithm\+Exception, No\+Such\+Provider\+Exception}
+
+Generates an array of random integers to serve as salt for a hash function and casts it to a String
+
+\begin{DoxyReturn}{Returns}
+The random salt values 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em No\+Such\+Algorithm\+Exception} & Occurs if the salt generation algorithm is missing \\
+\hline
+{\em No\+Such\+Provider\+Exception} & Occurs if the algorithm provider is missing \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer}{Wright\+Flight\+Manager.\+SECURITY.\+i\+Authorizer}}.
+
+\Hypertarget{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_ada0680795a1fb636dc0e886512b06e6f}\label{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_ada0680795a1fb636dc0e886512b06e6f} 
+\index{WrightFlightManager.SECURITY.Authorizer@{WrightFlightManager.SECURITY.Authorizer}!verifyHashMatch@{verifyHashMatch}}
+\index{verifyHashMatch@{verifyHashMatch}!WrightFlightManager.SECURITY.Authorizer@{WrightFlightManager.SECURITY.Authorizer}}
+\doxysubsubsection{\texorpdfstring{verifyHashMatch()}{verifyHashMatch()}}
+{\footnotesize\ttfamily boolean Wright\+Flight\+Manager.\+SECURITY.\+Authorizer.\+verify\+Hash\+Match (\begin{DoxyParamCaption}\item[{String}]{stored\+Hash,  }\item[{String}]{stored\+Salt,  }\item[{String}]{plaintext\+Password }\end{DoxyParamCaption})}
+
+Takes a hash, a salt, and a user-\/provided plaintext password as input, computes the hash for the provided password using the salt, and returns a boolean value representing whether the saved hash and the generated hash match.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stored\+Hash} & A hash stored in a local file. \\
+\hline
+{\em stored\+Salt} & A salt stored in a local file. \\
+\hline
+{\em plaintext\+Password} & A password provided by a user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean value representing if the password\textquotesingle{}s hash matches the hash for the stored password 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer}{Wright\+Flight\+Manager.\+SECURITY.\+i\+Authorizer}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/briandavis/\+Documents/\+Wright State/\+CS7140/\+Team\+F/src/main/java/\+Wright\+Flight\+Manager/\+SECURITY/Authorizer.\+java\end{DoxyCompactItemize}

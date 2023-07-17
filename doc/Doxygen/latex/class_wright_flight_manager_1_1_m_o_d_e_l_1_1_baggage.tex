@@ -1,0 +1,158 @@
+\doxysection{Wright\+Flight\+Manager.\+MODEL.\+Baggage Class Reference}
+\hypertarget{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage}{}\label{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage}\index{WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_ace899e5ef8a8670e81c5c28dbdeec199}{Baggage}} (int bag\+Id, String username, String bag\+Origin\+Airport, String bag\+Destination\+Airport)
+\item 
+\mbox{\hyperlink{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a6d8b6f0f2e2313d72ec7c0f7b6fc7376}{Baggage}} (int bag\+Id, String username, String bag\+Origin\+Airport, String bag\+Destination\+Airport, Date checked\+In\+Date\+Time, double weight\+In\+Pounds)
+\item 
+int \mbox{\hyperlink{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a4dce004c18ccd9c062c0731617fdbbe9}{get\+Bag\+Id}} ()
+\item 
+String \mbox{\hyperlink{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a3bb04e1ee96a3e3a565a72a02801959c}{get\+Username}} ()
+\item 
+String \mbox{\hyperlink{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a8c0279bc55e2e053eb59ed5b6c215df5}{get\+Bag\+Origin\+Airport}} ()
+\item 
+String \mbox{\hyperlink{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a89b87dbcc859c973fbaaebc1c6db2c4d}{get\+Bag\+Destination\+Airport}} ()
+\item 
+Date \mbox{\hyperlink{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a2c45c80000932466d1ec8e51068ead34}{get\+Checked\+In\+Date\+Time}} ()
+\item 
+void \mbox{\hyperlink{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a7da9f463e62abd97edda2f4524c172e9}{set\+Checked\+In\+Date\+Time}} ()
+\item 
+void \mbox{\hyperlink{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a02a27c42be16dc68723c9daca5ca2f34}{set\+Checked\+In\+Date\+Time}} (Date checked\+In\+Date\+Time)
+\item 
+double \mbox{\hyperlink{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a17d4cd273a2a518250c695b252bb4f43}{get\+Weight\+In\+Pounds}} ()
+\item 
+void \mbox{\hyperlink{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a78fc99edcb99eaf68b8e9a067709f3ea}{set\+Weight\+In\+Pounds}} (double weight\+In\+Pounds)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_ace899e5ef8a8670e81c5c28dbdeec199}\label{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_ace899e5ef8a8670e81c5c28dbdeec199} 
+\index{WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}!Baggage@{Baggage}}
+\index{Baggage@{Baggage}!WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}}
+\doxysubsubsection{\texorpdfstring{Baggage()}{Baggage()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Wright\+Flight\+Manager.\+MODEL.\+Baggage.\+Baggage (\begin{DoxyParamCaption}\item[{int}]{bag\+Id,  }\item[{String}]{username,  }\item[{String}]{bag\+Origin\+Airport,  }\item[{String}]{bag\+Destination\+Airport }\end{DoxyParamCaption})}
+
+The Baggage parameterized constructor creates a new Baggage object if it is included when the flight is booked 
+\begin{DoxyParams}{Parameters}
+{\em bag\+Id} & An integer representing a unique ID number for a bag \\
+\hline
+{\em username} & A String representing the username of whom the baggage belongs to \\
+\hline
+{\em bag\+Origin\+Airport} & A String representing the three-\/letter airport code of origin \\
+\hline
+{\em bag\+Destination\+Airport} & A String representing the three-\/letter airport code of destination \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a6d8b6f0f2e2313d72ec7c0f7b6fc7376}\label{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a6d8b6f0f2e2313d72ec7c0f7b6fc7376} 
+\index{WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}!Baggage@{Baggage}}
+\index{Baggage@{Baggage}!WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}}
+\doxysubsubsection{\texorpdfstring{Baggage()}{Baggage()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Wright\+Flight\+Manager.\+MODEL.\+Baggage.\+Baggage (\begin{DoxyParamCaption}\item[{int}]{bag\+Id,  }\item[{String}]{username,  }\item[{String}]{bag\+Origin\+Airport,  }\item[{String}]{bag\+Destination\+Airport,  }\item[{Date}]{checked\+In\+Date\+Time,  }\item[{double}]{weight\+In\+Pounds }\end{DoxyParamCaption})}
+
+The Baggage parameterized constructor creates a Baggage object for Baggage on file that was already checked in at the airport for the flight 
+\begin{DoxyParams}{Parameters}
+{\em bag\+Id} & An integer representing a unique ID number for a bag \\
+\hline
+{\em username} & A String representing the username of whom the baggage belongs to \\
+\hline
+{\em bag\+Origin\+Airport} & A String representing the three-\/letter airport code of origin \\
+\hline
+{\em bag\+Destination\+Airport} & A String representing the three-\/letter airport code of destination \\
+\hline
+{\em checked\+In\+Date\+Time} & A Date (including time) representing when the bag was checked in at the airport of origin \\
+\hline
+{\em weight\+In\+Pounds} & A double representing the wait of the bag (in pounds) when it was checked in at the airport of origin \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a89b87dbcc859c973fbaaebc1c6db2c4d}\label{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a89b87dbcc859c973fbaaebc1c6db2c4d} 
+\index{WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}!getBagDestinationAirport@{getBagDestinationAirport}}
+\index{getBagDestinationAirport@{getBagDestinationAirport}!WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}}
+\doxysubsubsection{\texorpdfstring{getBagDestinationAirport()}{getBagDestinationAirport()}}
+{\footnotesize\ttfamily String Wright\+Flight\+Manager.\+MODEL.\+Baggage.\+get\+Bag\+Destination\+Airport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The get\+Bag\+Destination\+Airport method takes no parameters and returns the Baggage\textquotesingle{}s airport of destination \begin{DoxyReturn}{Returns}
+A String representing the three-\/letter airport code of destination 
+\end{DoxyReturn}
+\Hypertarget{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a4dce004c18ccd9c062c0731617fdbbe9}\label{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a4dce004c18ccd9c062c0731617fdbbe9} 
+\index{WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}!getBagId@{getBagId}}
+\index{getBagId@{getBagId}!WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}}
+\doxysubsubsection{\texorpdfstring{getBagId()}{getBagId()}}
+{\footnotesize\ttfamily int Wright\+Flight\+Manager.\+MODEL.\+Baggage.\+get\+Bag\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The get\+Bag\+Id method takes no parameters and returns the Baggage\textquotesingle{}s ID number \begin{DoxyReturn}{Returns}
+An integer representing the Baggage\textquotesingle{}s unique ID number 
+\end{DoxyReturn}
+\Hypertarget{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a8c0279bc55e2e053eb59ed5b6c215df5}\label{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a8c0279bc55e2e053eb59ed5b6c215df5} 
+\index{WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}!getBagOriginAirport@{getBagOriginAirport}}
+\index{getBagOriginAirport@{getBagOriginAirport}!WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}}
+\doxysubsubsection{\texorpdfstring{getBagOriginAirport()}{getBagOriginAirport()}}
+{\footnotesize\ttfamily String Wright\+Flight\+Manager.\+MODEL.\+Baggage.\+get\+Bag\+Origin\+Airport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The get\+Bag\+Origin\+Airport method takes no parameters and returns the Baggage\textquotesingle{}s airport of origin \begin{DoxyReturn}{Returns}
+A String representing the three-\/letter airport code of origin 
+\end{DoxyReturn}
+\Hypertarget{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a2c45c80000932466d1ec8e51068ead34}\label{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a2c45c80000932466d1ec8e51068ead34} 
+\index{WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}!getCheckedInDateTime@{getCheckedInDateTime}}
+\index{getCheckedInDateTime@{getCheckedInDateTime}!WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}}
+\doxysubsubsection{\texorpdfstring{getCheckedInDateTime()}{getCheckedInDateTime()}}
+{\footnotesize\ttfamily Date Wright\+Flight\+Manager.\+MODEL.\+Baggage.\+get\+Checked\+In\+Date\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The get\+Checked\+In\+Date\+Time method takes no parameters and returns the date (including time) that the bag was checked in \begin{DoxyReturn}{Returns}
+A Date (including time) that the Baggage was checked in at the airport of origin 
+\end{DoxyReturn}
+\Hypertarget{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a3bb04e1ee96a3e3a565a72a02801959c}\label{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a3bb04e1ee96a3e3a565a72a02801959c} 
+\index{WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}!getUsername@{getUsername}}
+\index{getUsername@{getUsername}!WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}}
+\doxysubsubsection{\texorpdfstring{getUsername()}{getUsername()}}
+{\footnotesize\ttfamily String Wright\+Flight\+Manager.\+MODEL.\+Baggage.\+get\+Username (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The get\+Username method takes no parameters and returns the username of the owner that checked the Baggage \begin{DoxyReturn}{Returns}
+A String representing the username of the Baggage\textquotesingle{}s owner 
+\end{DoxyReturn}
+\Hypertarget{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a17d4cd273a2a518250c695b252bb4f43}\label{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a17d4cd273a2a518250c695b252bb4f43} 
+\index{WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}!getWeightInPounds@{getWeightInPounds}}
+\index{getWeightInPounds@{getWeightInPounds}!WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}}
+\doxysubsubsection{\texorpdfstring{getWeightInPounds()}{getWeightInPounds()}}
+{\footnotesize\ttfamily double Wright\+Flight\+Manager.\+MODEL.\+Baggage.\+get\+Weight\+In\+Pounds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The get\+Weight method takes no parameters and returns the weight of the Baggage when it was checked in \begin{DoxyReturn}{Returns}
+A double representing the weight of the Baggage at check in (in pounds) 
+\end{DoxyReturn}
+\Hypertarget{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a7da9f463e62abd97edda2f4524c172e9}\label{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a7da9f463e62abd97edda2f4524c172e9} 
+\index{WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}!setCheckedInDateTime@{setCheckedInDateTime}}
+\index{setCheckedInDateTime@{setCheckedInDateTime}!WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}}
+\doxysubsubsection{\texorpdfstring{setCheckedInDateTime()}{setCheckedInDateTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Wright\+Flight\+Manager.\+MODEL.\+Baggage.\+set\+Checked\+In\+Date\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The set\+Checked\+In\+Date\+Time method takes no parameters and sets the checked\+In\+Date\+Time to the current Date (including time) \Hypertarget{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a02a27c42be16dc68723c9daca5ca2f34}\label{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a02a27c42be16dc68723c9daca5ca2f34} 
+\index{WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}!setCheckedInDateTime@{setCheckedInDateTime}}
+\index{setCheckedInDateTime@{setCheckedInDateTime}!WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}}
+\doxysubsubsection{\texorpdfstring{setCheckedInDateTime()}{setCheckedInDateTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Wright\+Flight\+Manager.\+MODEL.\+Baggage.\+set\+Checked\+In\+Date\+Time (\begin{DoxyParamCaption}\item[{Date}]{checked\+In\+Date\+Time }\end{DoxyParamCaption})}
+
+The set\+Checked\+In\+Date\+Time method takes a Date (including time) as a parameter to set when the Baggage was checked in at the airport of origin to be used for Baggage that has already been checked in 
+\begin{DoxyParams}{Parameters}
+{\em checked\+In\+Date\+Time} & The Date (including time) that the Baggage was checked in at the airport of origin \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a78fc99edcb99eaf68b8e9a067709f3ea}\label{class_wright_flight_manager_1_1_m_o_d_e_l_1_1_baggage_a78fc99edcb99eaf68b8e9a067709f3ea} 
+\index{WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}!setWeightInPounds@{setWeightInPounds}}
+\index{setWeightInPounds@{setWeightInPounds}!WrightFlightManager.MODEL.Baggage@{WrightFlightManager.MODEL.Baggage}}
+\doxysubsubsection{\texorpdfstring{setWeightInPounds()}{setWeightInPounds()}}
+{\footnotesize\ttfamily void Wright\+Flight\+Manager.\+MODEL.\+Baggage.\+set\+Weight\+In\+Pounds (\begin{DoxyParamCaption}\item[{double}]{weight\+In\+Pounds }\end{DoxyParamCaption})}
+
+The set\+Weight\+In\+Pounds method takes a double as a parameter to set the weight\+In\+Pounds for the Baggage 
+\begin{DoxyParams}{Parameters}
+{\em weight\+In\+Pounds} & A double representing the weight of the Baggage in pounds \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/briandavis/\+Documents/\+Wright State/\+CS7140/\+Team\+F/src/main/java/\+Wright\+Flight\+Manager/\+MODEL/Baggage.\+java\end{DoxyCompactItemize}
