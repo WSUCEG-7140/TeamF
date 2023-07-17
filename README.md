@@ -1,2 +1,2 @@
-## Doxygen Documentation available at
-- https://thebrianjdavis.github.io/CS7140/
+## Doxygen Documentation available at <br>
+https://thebrianjdavis.github.io/CS7140/
