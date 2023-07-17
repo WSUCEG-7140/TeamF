@@ -132,15 +132,4 @@ public class FlightAttendantAccountCreationToGUI extends JFrame {
         usernameField.setText("");
         passwordField.setText("");
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                FlightAttendantAccountCreationToGUI system = new FlightAttendantAccountCreationToGUI();
-                system.setVisible(true);
-            }
-        });
-    }
 }
-
