@@ -57,14 +57,4 @@ public class FlightAttendantAccountCreationView extends JFrame {
         passwordField.setBounds(x, y, width, height);
         return passwordField;
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                FlightAttendantAccountCreationView system = new FlightAttendantAccountCreationView();
-                system.setVisible(true);
-            }
-        });
-    }
 }
