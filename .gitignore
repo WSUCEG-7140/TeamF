@@ -9,6 +9,10 @@ target/
 .idea/compiler.xml
 .idea/libraries/
 .idea/workspace.xml
+.idea/.gitignore
+.idea/misc.xml
+.idea/uiDesigner.xml
+.idea/vcs.xml
 *workspace.xml
 *.iws
 *.iml
