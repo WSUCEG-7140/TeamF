@@ -1,0 +1,28 @@
+var class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user =
+[
+    [ "User", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#ad542af57b993e5ed18365c2851820b0a", null ],
+    [ "getCity", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#ae70f30469c386e51f975e99ae855a613", null ],
+    [ "getEmailAddress", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#ad07c81421ca7cf28966fef0c14f43429", null ],
+    [ "getFirstName", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#ace6842ad8fcd6ec78d0e2845d27de2fe", null ],
+    [ "getFullAddress", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#ad79a552082c7d52a2ca8861f6434755d", null ],
+    [ "getLastName", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#ad44d3b4e948ebbff75e8a63b9e4a2994", null ],
+    [ "getPasswordHash", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#a459c13799e51a0ace76e589f9bd365bd", null ],
+    [ "getPasswordSalt", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#aef80b57b576e55adcdaf323a1cc1f447", null ],
+    [ "getPhoneNumber", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#aae5e4f041e1b21e02fdee7c1462215b6", null ],
+    [ "getState", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#ae80b1bf40054badfbb511ef25223c7f6", null ],
+    [ "getStreetAddress", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#a6c61d66ec0f87f354b7f6c0b1d9922f7", null ],
+    [ "getUsername", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#a7f096ad551fb9e1c8c8d85ec05ea3e7a", null ],
+    [ "getUserRole", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#a74a664846bd810d95488ab9c7de1338b", null ],
+    [ "getZipcode", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#a33be707ed61f17a178ef309524fdcd79", null ],
+    [ "setCity", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#a3973b16f67fd0bef70a5fabe9c9437fa", null ],
+    [ "setEmailAddress", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#ac098ca8f3f5cd0808d207c0f57d58bf7", null ],
+    [ "setFirstName", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#a51f825bb416c4e8fad3689cdf7b4aff0", null ],
+    [ "setLastName", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#af5f34764a69403e053dfd7b802ad3338", null ],
+    [ "setPasswordHash", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#a858c70ff0df13e71ca68ad54d8518b9c", null ],
+    [ "setPasswordSalt", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#a2b55c4ae26404c72d33d5ec1cd399ec6", null ],
+    [ "setPhoneNumber", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#a2cc58736fd545cdca4494ea02ed789b2", null ],
+    [ "setState", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#a7c71ac2638cb628787852a3aec26e6fd", null ],
+    [ "setStreetAddress", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#a3e0f784577dde09e919a2e29797066da", null ],
+    [ "setUserRole", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#af5e92f5b67d189edb3d9f9dba9397160", null ],
+    [ "setZipcode", "class_wright_flight_manager_1_1_m_o_d_e_l_1_1_user.html#a623bd993e93760fcf54ee1833f8ffbb0", null ]
+];
