@@ -133,4 +133,3 @@ public class FlightAttendantAccountCreationToGUI extends JFrame {
         passwordField.setText("");
     }
 }
-

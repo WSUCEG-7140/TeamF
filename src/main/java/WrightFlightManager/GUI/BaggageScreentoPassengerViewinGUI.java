@@ -156,9 +156,5 @@ class BaggageScreentoPassengerViewinGUI extends JFrame implements ActionListener
             });
         }
     }
-
-    public static void main(String s[]) {
-        BaggageScreentoPassengerViewinGUI obj = new BaggageScreentoPassengerViewinGUI();
-    }
 }
 
