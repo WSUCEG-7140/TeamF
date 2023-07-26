@@ -1,8 +1,13 @@
 package WrightFlightManager.DAO;
 
+import WrightFlightManager.MODEL.Role;
 import WrightFlightManager.MODEL.User;
 
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 /**
  * @class UserFileDAO
@@ -63,11 +68,60 @@ public class UserFileDAO implements iUserDAO {
      * <p>
      * This method retrieves all user records from the file-based data storage system and returns them in
      * a HashMap where the key is the user's ID (an integer) and the value is the corresponding User object.
+     * Linked Issue: #69 https://github.com/WSUCEG-7140/TeamF/issues/49
      * @return A HashMap<Integer, User> containing all user records in the data storage system.
      */
     @Override
-    public HashMap<Integer, User> getAllUsers() {
-        return null;
+    public HashMap<String, User> getAllUsers() {
+        HashMap<String, User> allUsers = new HashMap<>();
+
+        try {
+            RoleFileDAO roleDAO = new RoleFileDAO();
+            HashMap<Integer, Role> allRoles = roleDAO.getAllRoles();
+            Path userFilePath = Path.of(userFileName);
+            Scanner fileRead = new Scanner(userFilePath);
+            while (fileRead.hasNextLine()) {
+                String line = fileRead.nextLine();
+                String[] splitLine = line.split("\\|");
+                if (splitLine.length == 12) {
+                    String username = splitLine[0];
+                    String passwordHash = splitLine[1];
+                    String passwordSalt = splitLine[2];
+                    Role userRole = null;
+                    for(Map.Entry<Integer, Role> entry : allRoles.entrySet()) {
+                        if (entry.getKey() == Integer.parseInt(splitLine[3])) {
+                            userRole = entry.getValue();
+                            break;
+                        }
+                    }
+                    String firstName = splitLine[4];
+                    String lastName = splitLine[5];
+                    String streetAddress = splitLine[6];
+                    String city = splitLine[7];
+                    String state = splitLine[8];
+                    String zipcode = splitLine[9];
+                    String phoneNumber = splitLine[10];
+                    String emailAddress = splitLine[11];
+                    allUsers.put(username, new User(
+                            username,
+                            passwordHash,
+                            passwordSalt,
+                            userRole,
+                            firstName,
+                            lastName,
+                            streetAddress,
+                            city,
+                            state,
+                            zipcode,
+                            phoneNumber,
+                            emailAddress));
+                }
+            }
+            fileRead.close();
+        } catch (IOException e) {
+            // Ignore
+        }
+        return allUsers;
     }
 
     /**
@@ -95,5 +149,29 @@ public class UserFileDAO implements iUserDAO {
     @Override
     public boolean deleteUser(User userToDelete) {
         return false;
+    }
+
+    /**
+     * @brief Helper method to check if a User is in the user file.
+     * <p>
+     * The isUserInFile method is a helper method that takes a user as a parameter to check if a that
+     * User is in the user file by searching for a match of the username
+     * Linked Issue: #69 https://github.com/WSUCEG-7140/TeamF/issues/49
+     * @param checkUser This represents the User being searched for within the file
+     * @return          Returns true if the user was found in the file
+     */
+    private boolean isUserInFile(User checkUser) {
+
+        boolean userFound = false;
+        HashMap<String, User> allUsers = getAllUsers();
+
+        for(Map.Entry<String, User> entry : allUsers.entrySet()) {
+            if (entry.getKey().equals(checkUser.getUsername())) {
+                userFound = true;
+                break;
+            }
+        }
+
+        return userFound;
     }
 }
