@@ -1,18 +1,30 @@
 package WrightFlightManager.DAO;
 
 import WrightFlightManager.MODEL.Role;
+import WrightFlightManager.MODEL.User;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class FileDAOTests {
 
-    iRoleDAO defaultDAO = new RoleFileDAO();
+    iRoleDAO defaultRoleDAO = new RoleFileDAO();
     iRoleDAO roleDAO = new RoleFileDAO("src/main/java/WrightFlightManager/FILES/_Roles_TEST.psv");
-    iRoleDAO errorDAO = new RoleFileDAO("BADFILEPATH/BADFILE.psv");
+    iRoleDAO errorRoleDAO = new RoleFileDAO("BADFILEPATH/BADFILE.psv");
+
+    iUserDAO defaultUserDAO = new UserFileDAO();
+    iUserDAO userDAO = new UserFileDAO("src/main/java/WrightFlightManager/FILES/_Users_TEST.psv");
+    iUserDAO errorUserDAO = new UserFileDAO("BADFILEPATH/BADFILE.psv");
+
+    @Test
+    void getAllUsers() {
+        HashMap<String, User> defaultUsers = defaultUserDAO.getAllUsers();
+        HashMap<String, User> allUsers = userDAO.getAllUsers();
+        assertTrue(defaultUsers.size() > 0);
+        assertTrue(allUsers.size() > 0);
+    }
 
     @Test
     void addNewRole() {
@@ -29,7 +41,7 @@ class FileDAOTests {
 
     @Test
     void getAllRoles() {
-        HashMap<Integer, Role> defaultRoles = roleDAO.getAllRoles();
+        HashMap<Integer, Role> defaultRoles = defaultRoleDAO.getAllRoles();
         HashMap<Integer, Role> allRoles = roleDAO.getAllRoles();
         assertTrue(defaultRoles.size() > 0);
         assertTrue(allRoles.size() > 0);
