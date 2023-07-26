@@ -45,6 +45,38 @@ class FileDAOTests {
     }
 
     @Test
+    void updateUser() {
+        User updatedUser = new User(
+                "testuser",
+                "zzzz",
+                "xxxx",
+                new Role(1, "Passenger"),
+                "test",
+                "user",
+                "123 NOWHERE ROAD",
+                "Columbus",
+                "Ohio",
+                "12345",
+                "555-555-5555",
+                "email@address.com");
+        User fakeUser = new User(
+                "batman",
+                "zzzz",
+                "xxxx",
+                new Role(1, "Passenger"),
+                "test",
+                "user",
+                "123 NOWHERE ROAD",
+                "Columbus",
+                "Ohio",
+                "12345",
+                "555-555-5555",
+                "email@address.com");
+        assertTrue(userDAO.updateUser(updatedUser));
+        assertFalse(userDAO.updateUser(fakeUser));
+    }
+
+    @Test
     void deleteUser() {
         User userToDelete = new User(
                 "testuser",

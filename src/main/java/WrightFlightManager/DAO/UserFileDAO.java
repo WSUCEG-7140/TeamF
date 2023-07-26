@@ -141,12 +141,19 @@ public class UserFileDAO implements iUserDAO {
      * This method is responsible for updating an existing user's information in the data storage system.
      * The new user information is obtained from the provided User object, which should have the same user ID
      * as the one to be updated.
+     * Linked Issue: #48 https://github.com/WSUCEG-7140/TeamF/issues/48
      * @param updatedUser The User object representing the updated user information.
      * @return True if the user information is successfully updated, false otherwise.
      */
     @Override
     public boolean updateUser(User updatedUser) {
-        return false;
+        boolean updateSuccessful = false;
+
+        if (deleteUser(updatedUser)) {
+            updateSuccessful = addNewUser(updatedUser);
+        }
+
+        return updateSuccessful;
     }
 
     /**
