@@ -1,5 +1,10 @@
 \doxysection{Wright\+Flight\+Manager.\+SECURITY.\+Authorizer Class Reference}
 \hypertarget{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer}{}\label{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer}\index{WrightFlightManager.SECURITY.Authorizer@{WrightFlightManager.SECURITY.Authorizer}}
+
+
+This class provides methods for password hashing and verification using SHA-\/512 algorithm.  
+
+
 Inheritance diagram for Wright\+Flight\+Manager.\+SECURITY.\+Authorizer\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -20,12 +25,19 @@ boolean \mbox{\hyperlink{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_aut
 \begin{DoxyCompactItemize}
 \item 
 String \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer_a662b1cf83ff529123a89cebc082441de}{compute\+Hash}} (String plaintext\+Password, String salt)
-\item 
+\begin{DoxyCompactList}\small\item\em Computes a salted/hashed password based on the plaintext password and the salt. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer_a4c3cc0b2fc9625237d003b044b35176c}{create\+Salt}} ()  throws No\+Such\+Algorithm\+Exception, No\+Such\+Provider\+Exception
-\item 
+\begin{DoxyCompactList}\small\item\em Generates a random salt as an array of random integers and casts it to a String. \end{DoxyCompactList}\item 
 boolean \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer_a367827780e1e37961a676835030ea5cf}{verify\+Hash\+Match}} (String hash, String salt, String plaintext\+Password)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Verifies if the provided plaintext password matches the stored hash and salt. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+This class provides methods for password hashing and verification using SHA-\/512 algorithm. 
+
+The Authorizer class is responsible for generating salted/hashed passwords and verifying if a provided plaintext password matches a stored hash. It uses the SHA-\/512 algorithm for computing the hashes.
+
+For more information about SHA-\/2 and the SHA-\/512 algorithm, please refer to the Wikipedia page\+: \href{https://en.wikipedia.org/wiki/SHA-2}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+SHA-\/2}} 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_ac11c919af7a369b98c52e64eeed2662c}\label{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_ac11c919af7a369b98c52e64eeed2662c} 
@@ -38,7 +50,7 @@ Overloaded constructor takes a String as input to allow testing of the exception
 
 
 \begin{DoxyParams}{Parameters}
-{\em algorithm} & The name of the algorithm that Message\+Digest will use to compute hashes \\
+{\em algorithm} & The name of the algorithm that Message\+Digest will use to compute hashes Linked Issue\+: \#32 \href{https://github.com/WSUCEG-7140/TeamF/issues/32}{\texttt{ https\+://github.\+com/\+WSUCEG-\/7140/\+Team\+F/issues/32}} \\
 \hline
 \end{DoxyParams}
 
@@ -60,11 +72,11 @@ Takes a plain text password and a salt as input, and returns a salted/hashed pas
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A hash of the password and salt 
+A hash of the password and salt
 \end{DoxyReturn}
+Linked Issue\+: \#32 \href{https://github.com/WSUCEG-7140/TeamF/issues/32}{\texttt{ https\+://github.\+com/\+WSUCEG-\/7140/\+Team\+F/issues/32}} 
 
-
-Implements \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer}{Wright\+Flight\+Manager.\+SECURITY.\+i\+Authorizer}}.
+Implements \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer_a662b1cf83ff529123a89cebc082441de}{Wright\+Flight\+Manager.\+SECURITY.\+i\+Authorizer}}.
 
 \Hypertarget{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_a775be26fd7b8bb1c08f4303e88e740d1}\label{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_a775be26fd7b8bb1c08f4303e88e740d1} 
 \index{WrightFlightManager.SECURITY.Authorizer@{WrightFlightManager.SECURITY.Authorizer}!createSalt@{createSalt}}
@@ -81,12 +93,12 @@ The random salt values
 \begin{DoxyExceptions}{Exceptions}
 {\em No\+Such\+Algorithm\+Exception} & Occurs if the salt generation algorithm is missing \\
 \hline
-{\em No\+Such\+Provider\+Exception} & Occurs if the algorithm provider is missing \\
+{\em No\+Such\+Provider\+Exception} & Occurs if the algorithm provider is missing\\
 \hline
 \end{DoxyExceptions}
+Linked Issue\+: \#32 \href{https://github.com/WSUCEG-7140/TeamF/issues/32}{\texttt{ https\+://github.\+com/\+WSUCEG-\/7140/\+Team\+F/issues/32}} 
 
-
-Implements \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer}{Wright\+Flight\+Manager.\+SECURITY.\+i\+Authorizer}}.
+Implements \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer_a4c3cc0b2fc9625237d003b044b35176c}{Wright\+Flight\+Manager.\+SECURITY.\+i\+Authorizer}}.
 
 \Hypertarget{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_ada0680795a1fb636dc0e886512b06e6f}\label{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_ada0680795a1fb636dc0e886512b06e6f} 
 \index{WrightFlightManager.SECURITY.Authorizer@{WrightFlightManager.SECURITY.Authorizer}!verifyHashMatch@{verifyHashMatch}}
@@ -106,14 +118,14 @@ Takes a hash, a salt, and a user-\/provided plaintext password as input, compute
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Boolean value representing if the password\textquotesingle{}s hash matches the hash for the stored password 
+Boolean value representing if the password\textquotesingle{}s hash matches the hash for the stored password
 \end{DoxyReturn}
+Linked Issue\+: \#32 \href{https://github.com/WSUCEG-7140/TeamF/issues/32}{\texttt{ https\+://github.\+com/\+WSUCEG-\/7140/\+Team\+F/issues/32}} 
 
-
-Implements \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer}{Wright\+Flight\+Manager.\+SECURITY.\+i\+Authorizer}}.
+Implements \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer_a367827780e1e37961a676835030ea5cf}{Wright\+Flight\+Manager.\+SECURITY.\+i\+Authorizer}}.
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/briandavis/\+Documents/\+Wright State/\+CS7140/\+Team\+F/src/main/java/\+Wright\+Flight\+Manager/\+SECURITY/Authorizer.\+java\end{DoxyCompactItemize}
+main/java/\+Wright\+Flight\+Manager/\+SECURITY/Authorizer.\+java\end{DoxyCompactItemize}

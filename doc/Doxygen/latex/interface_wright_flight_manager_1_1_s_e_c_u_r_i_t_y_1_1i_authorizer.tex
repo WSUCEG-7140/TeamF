@@ -1,5 +1,10 @@
 \doxysection{Wright\+Flight\+Manager.\+SECURITY.\+i\+Authorizer Interface Reference}
 \hypertarget{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer}{}\label{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer}\index{WrightFlightManager.SECURITY.iAuthorizer@{WrightFlightManager.SECURITY.iAuthorizer}}
+
+
+This interface defines the contract for password hashing and verification operations.  
+
+
 Inheritance diagram for Wright\+Flight\+Manager.\+SECURITY.\+i\+Authorizer\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -10,12 +15,17 @@ Inheritance diagram for Wright\+Flight\+Manager.\+SECURITY.\+i\+Authorizer\+:\be
 \begin{DoxyCompactItemize}
 \item 
 String \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer_a662b1cf83ff529123a89cebc082441de}{compute\+Hash}} (String plaintext\+Password, String salt)
-\item 
+\begin{DoxyCompactList}\small\item\em Computes a salted/hashed password based on the plaintext password and the salt. \end{DoxyCompactList}\item 
 String \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer_a4c3cc0b2fc9625237d003b044b35176c}{create\+Salt}} ()  throws No\+Such\+Algorithm\+Exception, No\+Such\+Provider\+Exception
-\item 
+\begin{DoxyCompactList}\small\item\em Generates a random salt as an array of random integers and casts it to a String. \end{DoxyCompactList}\item 
 boolean \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer_a367827780e1e37961a676835030ea5cf}{verify\+Hash\+Match}} (String hash, String salt, String plaintext\+Password)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Verifies if the provided plaintext password matches the stored hash and salt. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+This interface defines the contract for password hashing and verification operations. 
+
+The i\+Authorizer interface provides a set of methods for computing hash values for passwords, generating random salts, and verifying if a provided plaintext password matches a stored hash and salt. Classes that implement this interface are expected to provide concrete implementations for these methods, allowing customized password security mechanisms. 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer_a662b1cf83ff529123a89cebc082441de}\label{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer_a662b1cf83ff529123a89cebc082441de} 
@@ -24,6 +34,22 @@ boolean \mbox{\hyperlink{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1
 \doxysubsubsection{\texorpdfstring{computeHash()}{computeHash()}}
 {\footnotesize\ttfamily String Wright\+Flight\+Manager.\+SECURITY.\+i\+Authorizer.\+compute\+Hash (\begin{DoxyParamCaption}\item[{String}]{plaintext\+Password,  }\item[{String}]{salt }\end{DoxyParamCaption})}
 
+
+
+Computes a salted/hashed password based on the plaintext password and the salt. 
+
+This method takes a plaintext password and a salt as input and returns a salted/hashed password. The salt is used as an additional input to a one-\/way function that hashes the password.
+
+
+\begin{DoxyParams}{Parameters}
+{\em plaintext\+Password} & The password that the user entered. \\
+\hline
+{\em salt} & The salt, a random string of characters, used as an additional input to a one-\/way function that hashes the password. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A hash of the password and salt. 
+\end{DoxyReturn}
 
 
 Implemented in \mbox{\hyperlink{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_a6a1ea5ad66bd4f3a874563951d83ce0c}{Wright\+Flight\+Manager.\+SECURITY.\+Authorizer}}.
@@ -36,6 +62,25 @@ Implemented in \mbox{\hyperlink{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_
 
 
 
+Generates a random salt as an array of random integers and casts it to a String. 
+
+This method generates a random salt to be used in password hashing. The salt is typically a random string of characters that adds randomness to the hash, making it more secure against various attacks.
+
+\begin{DoxyNote}{Note}
+The specific algorithm and provider used for salt generation may depend on the implementation. 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+The random salt values as a String. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em No\+Such\+Algorithm\+Exception} & Occurs if the salt generation algorithm is missing. \\
+\hline
+{\em No\+Such\+Provider\+Exception} & Occurs if the algorithm provider is missing. \\
+\hline
+\end{DoxyExceptions}
+
+
 Implemented in \mbox{\hyperlink{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_a775be26fd7b8bb1c08f4303e88e740d1}{Wright\+Flight\+Manager.\+SECURITY.\+Authorizer}}.
 
 \Hypertarget{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer_a367827780e1e37961a676835030ea5cf}\label{interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer_a367827780e1e37961a676835030ea5cf} 
@@ -46,10 +91,28 @@ Implemented in \mbox{\hyperlink{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_
 
 
 
+Verifies if the provided plaintext password matches the stored hash and salt. 
+
+This method takes a stored hash, a stored salt, and a user-\/provided plaintext password as input. It computes the hash for the provided password using the stored salt and then compares it with the stored hash to determine if they match.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hash} & The hash stored in a local file or database. \\
+\hline
+{\em salt} & The salt stored in a local file or database. \\
+\hline
+{\em plaintext\+Password} & The password provided by a user. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean value representing if the password\textquotesingle{}s hash matches the hash for the stored password. 
+\end{DoxyReturn}
+
+
 Implemented in \mbox{\hyperlink{class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer_ada0680795a1fb636dc0e886512b06e6f}{Wright\+Flight\+Manager.\+SECURITY.\+Authorizer}}.
 
 
 
 The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/briandavis/\+Documents/\+Wright State/\+CS7140/\+Team\+F/src/main/java/\+Wright\+Flight\+Manager/\+SECURITY/i\+Authorizer.\+java\end{DoxyCompactItemize}
+main/java/\+Wright\+Flight\+Manager/\+SECURITY/i\+Authorizer.\+java\end{DoxyCompactItemize}

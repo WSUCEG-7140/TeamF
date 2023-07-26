@@ -25,18 +25,6 @@
 var NAVTREE =
 [
   [ "WrightFlightManager", "index.html", [
-    [ "DAO Folder", "md__2_users_2briandavis_2_documents_2_wright_01_state_2_c_s7140_2_team_f_2src_2main_2java_2_wrig15403f61968446a91e3f4d9882df1ad6.html", [
-      [ "Contents", "md__2_users_2briandavis_2_documents_2_wright_01_state_2_c_s7140_2_team_f_2src_2main_2java_2_wrig15403f61968446a91e3f4d9882df1ad6.html#autotoc_md1", null ]
-    ] ],
-    [ "GUI Folder", "md__2_users_2briandavis_2_documents_2_wright_01_state_2_c_s7140_2_team_f_2src_2main_2java_2_wrigc3b4d94841fe5d5dbce31c0fa8e7ca93.html", [
-      [ "Contents", "md__2_users_2briandavis_2_documents_2_wright_01_state_2_c_s7140_2_team_f_2src_2main_2java_2_wrigc3b4d94841fe5d5dbce31c0fa8e7ca93.html#autotoc_md3", null ]
-    ] ],
-    [ "MODEL Folder", "md__2_users_2briandavis_2_documents_2_wright_01_state_2_c_s7140_2_team_f_2src_2main_2java_2_wrig35c1592a1a8959dbd1a7043afe12d2ec.html", [
-      [ "Contents", "md__2_users_2briandavis_2_documents_2_wright_01_state_2_c_s7140_2_team_f_2src_2main_2java_2_wrig35c1592a1a8959dbd1a7043afe12d2ec.html#autotoc_md5", null ]
-    ] ],
-    [ "SECURITY Folder", "md__2_users_2briandavis_2_documents_2_wright_01_state_2_c_s7140_2_team_f_2src_2main_2java_2_wrigb0f095fd76cd5e19e457421c059e5c6b.html", [
-      [ "Contents", "md__2_users_2briandavis_2_documents_2_wright_01_state_2_c_s7140_2_team_f_2src_2main_2java_2_wrigb0f095fd76cd5e19e457421c059e5c6b.html#autotoc_md7", null ]
-    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
