@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -153,12 +154,33 @@ public class UserFileDAO implements iUserDAO {
      * <p>
      * This method is used to delete a user from the file-based data storage system. The user to be deleted is
      * identified by the provided User object, which should have the same user ID as the one to be deleted.
+     * Linked Issue: #50 https://github.com/WSUCEG-7140/TeamF/issues/50
      * @param userToDelete The User object representing the user to be deleted.
      * @return True if the user is successfully deleted, false otherwise.
      */
     @Override
     public boolean deleteUser(User userToDelete) {
-        return false;
+        boolean deleteSuccessful = false;
+        boolean removedFromHashMap = false;
+
+        HashMap<String, User> allUsers = getAllUsers();
+
+        Iterator<Map.Entry<String, User>> itr = allUsers.entrySet().iterator();
+
+        while(itr.hasNext())
+        {
+            Map.Entry<String, User> entry = itr.next();
+            if (entry.getKey().equals(userToDelete.getUsername())) {
+                itr.remove();
+                removedFromHashMap = true;
+            }
+        }
+        if (removedFromHashMap) {
+            deleteSuccessful = writeToUsersFile(allUsers);
+        }
+
+
+        return deleteSuccessful;
     }
 
     /**

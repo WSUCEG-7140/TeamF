@@ -45,6 +45,38 @@ class FileDAOTests {
     }
 
     @Test
+    void deleteUser() {
+        User userToDelete = new User(
+                "testuser",
+                "asdf",
+                "asdf",
+                new Role(1, "Passenger"),
+                "test",
+                "user",
+                "123 NOWHERE ROAD",
+                "Columbus",
+                "Ohio",
+                "12345",
+                "555-555-5555",
+                "email@address.com");
+        User userToDelete2 = new User(
+                "testuser",
+                "asdf",
+                "asdf",
+                new Role(1, "Passenger"),
+                "test",
+                "user",
+                "123 NOWHERE ROAD",
+                "Columbus",
+                "Ohio",
+                "12345",
+                "555-555-5555",
+                "email@address.com");
+        assertTrue(userDAO.deleteUser((userToDelete)));
+        assertFalse(userDAO.deleteUser(userToDelete2));
+    }
+
+    @Test
     void addNewRole() {
         Role newRole = new Role(99, "TEST ROLE");
         Role newRole2 = new Role(98, "TEST ROLE");
