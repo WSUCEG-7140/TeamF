@@ -27,7 +27,7 @@
   <td id="projectalign">
    <div id="projectname">WrightFlightManager
    </div>
-   <div id="projectbrief">Airline Control System</div>
+   <div id="projectbrief">This project models an airline control system to manage passengers, baggage, and flight attendants traveling via the airline.</div>
   </td>
  </tr>
  </tbody>
@@ -96,28 +96,38 @@ $(document).ready(function(){initNavTree('interface_wright_flight_manager_1_1_d_
   <div class="headertitle"><div class="title">WrightFlightManager.DAO.iRoleDAO Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This interface defines the contract for managing roles using a data access object (DAO) approach.  
+ <a href="interface_wright_flight_manager_1_1_d_a_o_1_1i_role_d_a_o.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for WrightFlightManager.DAO.iRoleDAO:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="interface_wright_flight_manager_1_1_d_a_o_1_1i_role_d_a_o.png" usemap="#WrightFlightManager.DAO.iRoleDAO_map" alt=""/>
   <map id="WrightFlightManager.DAO.iRoleDAO_map" name="WrightFlightManager.DAO.iRoleDAO_map">
-<area href="class_wright_flight_manager_1_1_d_a_o_1_1_role_file_d_a_o.html" alt="WrightFlightManager.DAO.RoleFileDAO" shape="rect" coords="0,56,240,80"/>
+<area href="class_wright_flight_manager_1_1_d_a_o_1_1_role_file_d_a_o.html" title="This class defines the file-based implementation for managing roles using a data access object (DAO) ..." alt="WrightFlightManager.DAO.RoleFileDAO" shape="rect" coords="0,56,240,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a55fa1a7a8fdb6acda2675ad408ff7922"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_wright_flight_manager_1_1_d_a_o_1_1i_role_d_a_o.html#a55fa1a7a8fdb6acda2675ad408ff7922">addNewRole</a> (<a class="el" href="class_wright_flight_manager_1_1_m_o_d_e_l_1_1_role.html">Role</a> newRole)</td></tr>
+<tr class="memdesc:a55fa1a7a8fdb6acda2675ad408ff7922"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new role to the data storage.  <br /></td></tr>
 <tr class="separator:a55fa1a7a8fdb6acda2675ad408ff7922"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a618a22d1ab0fc92a5e32c43f48bec400"><td class="memItemLeft" align="right" valign="top">HashMap&lt; Integer, <a class="el" href="class_wright_flight_manager_1_1_m_o_d_e_l_1_1_role.html">Role</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_wright_flight_manager_1_1_d_a_o_1_1i_role_d_a_o.html#a618a22d1ab0fc92a5e32c43f48bec400">getAllRoles</a> ()</td></tr>
+<tr class="memdesc:a618a22d1ab0fc92a5e32c43f48bec400"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all roles from the data storage.  <br /></td></tr>
 <tr class="separator:a618a22d1ab0fc92a5e32c43f48bec400"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a685572dfd270d2ac94cc82e04ab16b10"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_wright_flight_manager_1_1_d_a_o_1_1i_role_d_a_o.html#a685572dfd270d2ac94cc82e04ab16b10">updateRole</a> (<a class="el" href="class_wright_flight_manager_1_1_m_o_d_e_l_1_1_role.html">Role</a> updatedRole)</td></tr>
+<tr class="memdesc:a685572dfd270d2ac94cc82e04ab16b10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates an existing role in the data storage.  <br /></td></tr>
 <tr class="separator:a685572dfd270d2ac94cc82e04ab16b10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae47a1cb9c5632e1623d46813a4308505"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_wright_flight_manager_1_1_d_a_o_1_1i_role_d_a_o.html#ae47a1cb9c5632e1623d46813a4308505">deleteRole</a> (<a class="el" href="class_wright_flight_manager_1_1_m_o_d_e_l_1_1_role.html">Role</a> roleToDelete)</td></tr>
+<tr class="memdesc:ae47a1cb9c5632e1623d46813a4308505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a role from the data storage.  <br /></td></tr>
 <tr class="separator:ae47a1cb9c5632e1623d46813a4308505"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This interface defines the contract for managing roles using a data access object (DAO) approach. </p>
+<p>The iRoleDAO interface provides a set of methods for performing CRUD (Create, Read, Update, Delete) operations related to the "Role" entity. Classes that implement this interface are expected to provide concrete implementations for these methods, allowing interaction with a data storage system for managing roles. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a55fa1a7a8fdb6acda2675ad408ff7922" name="a55fa1a7a8fdb6acda2675ad408ff7922"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a55fa1a7a8fdb6acda2675ad408ff7922">&#9670;&#160;</a></span>addNewRole()</h2>
 
@@ -133,6 +143,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adds a new role to the data storage. </p>
+<p>This method adds a new role to the data storage (e.g., a file or database) if the role ID and role title are not already present in the data storage.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newRole</td><td>The Role object representing the new role to be added. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the role was successfully added, false otherwise. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_wright_flight_manager_1_1_d_a_o_1_1_role_file_d_a_o.html#aa7c3c965a1759dcdfc75ccad393c13b0">WrightFlightManager.DAO.RoleFileDAO</a>.</p>
 
@@ -154,6 +174,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Deletes a role from the data storage. </p>
+<p>This method deletes the specified role from the data storage based on the information provided in the roleToDelete parameter. The deletion is performed based on the role's unique identifier (ID).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">roleToDelete</td><td>The Role object representing the role to be deleted. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the role was successfully deleted, false otherwise. </dd></dl>
+
 <p>Implemented in <a class="el" href="class_wright_flight_manager_1_1_d_a_o_1_1_role_file_d_a_o.html#afe11790c8739df47f81d15addea005fb">WrightFlightManager.DAO.RoleFileDAO</a>.</p>
 
 </div>
@@ -172,6 +202,10 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Retrieves all roles from the data storage. </p>
+<p>This method retrieves all roles from the data storage and returns them as a HashMap, where the keys are role IDs (Integer) and the values are Role objects.</p>
+<dl class="section return"><dt>Returns</dt><dd>A HashMap containing all roles, where the keys are role IDs and the values are Role objects. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_wright_flight_manager_1_1_d_a_o_1_1_role_file_d_a_o.html#a14488ebf6f77542da1dc9d3e286fe7d8">WrightFlightManager.DAO.RoleFileDAO</a>.</p>
 
@@ -193,12 +227,22 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Updates an existing role in the data storage. </p>
+<p>This method updates an existing role in the data storage based on the information provided in the updatedRole parameter. The update is performed based on the role's unique identifier (ID).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">updatedRole</td><td>The Role object representing the updated role information. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the role was successfully updated, false otherwise. </dd></dl>
+
 <p>Implemented in <a class="el" href="class_wright_flight_manager_1_1_d_a_o_1_1_role_file_d_a_o.html#a4913565498d1bfab24876dc8bca273e3">WrightFlightManager.DAO.RoleFileDAO</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
-<li>/Users/briandavis/Documents/Wright State/CS7140/TeamF/src/main/java/WrightFlightManager/DAO/iRoleDAO.java</li>
+<li>main/java/WrightFlightManager/DAO/iRoleDAO.java</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

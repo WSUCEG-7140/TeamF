@@ -12,8 +12,10 @@ var hierarchy =
     [ "JFrame", null, [
       [ "WrightFlightManager.GUI.BaggageScreentoFlightAttendantView", "class_wright_flight_manager_1_1_g_u_i_1_1_baggage_screento_flight_attendant_view.html", null ],
       [ "WrightFlightManager.GUI.FlightAttendantAccountCreationToGUI", "class_wright_flight_manager_1_1_g_u_i_1_1_flight_attendant_account_creation_to_g_u_i.html", null ],
+      [ "WrightFlightManager.GUI.FlightAttendantAccountCreationView", "class_wright_flight_manager_1_1_g_u_i_1_1_flight_attendant_account_creation_view.html", null ],
       [ "WrightFlightManager.GUI.FlightAttendantView", "class_wright_flight_manager_1_1_g_u_i_1_1_flight_attendant_view.html", null ],
       [ "WrightFlightManager.GUI.PassengerAccountCreationToGUI", "class_wright_flight_manager_1_1_g_u_i_1_1_passenger_account_creation_to_g_u_i.html", null ],
+      [ "WrightFlightManager.GUI.PassengerAccountCreationView", "class_wright_flight_manager_1_1_g_u_i_1_1_passenger_account_creation_view.html", null ],
       [ "WrightFlightManager.GUI.WelcomeScreen", "class_wright_flight_manager_1_1_g_u_i_1_1_welcome_screen.html", null ]
     ] ],
     [ "WrightFlightManager.Main", "class_wright_flight_manager_1_1_main.html", null ],

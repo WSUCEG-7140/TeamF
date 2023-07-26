@@ -27,7 +27,7 @@
   <td id="projectalign">
    <div id="projectname">WrightFlightManager
    </div>
-   <div id="projectbrief">Airline Control System</div>
+   <div id="projectbrief">This project models an airline control system to manage passengers, baggage, and flight attendants traveling via the airline.</div>
   </td>
  </tr>
  </tbody>
@@ -96,13 +96,16 @@ $(document).ready(function(){initNavTree('class_wright_flight_manager_1_1_s_e_c_
   <div class="headertitle"><div class="title">WrightFlightManager.SECURITY.Authorizer Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class provides methods for password hashing and verification using SHA-512 algorithm.  
+ <a href="class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for WrightFlightManager.SECURITY.Authorizer:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer.png" usemap="#WrightFlightManager.SECURITY.Authorizer_map" alt=""/>
   <map id="WrightFlightManager.SECURITY.Authorizer_map" name="WrightFlightManager.SECURITY.Authorizer_map">
-<area href="interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer.html" alt="WrightFlightManager.SECURITY.iAuthorizer" shape="rect" coords="0,0,260,24"/>
+<area href="interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer.html" title="This interface defines the contract for password hashing and verification operations." alt="WrightFlightManager.SECURITY.iAuthorizer" shape="rect" coords="0,0,260,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -117,13 +120,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ada0680795a1fb636dc0e886512b06e6f"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer.html#ada0680795a1fb636dc0e886512b06e6f">verifyHashMatch</a> (String storedHash, String storedSalt, String plaintextPassword)</td></tr>
 <tr class="separator:ada0680795a1fb636dc0e886512b06e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a662b1cf83ff529123a89cebc082441de"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer.html#a662b1cf83ff529123a89cebc082441de">computeHash</a> (String plaintextPassword, String salt)</td></tr>
+<tr class="memdesc:a662b1cf83ff529123a89cebc082441de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a salted/hashed password based on the plaintext password and the salt.  <br /></td></tr>
 <tr class="separator:a662b1cf83ff529123a89cebc082441de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c3cc0b2fc9625237d003b044b35176c"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer.html#a4c3cc0b2fc9625237d003b044b35176c">createSalt</a> ()  throws NoSuchAlgorithmException, NoSuchProviderException</td></tr>
+<tr class="memdesc:a4c3cc0b2fc9625237d003b044b35176c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random salt as an array of random integers and casts it to a String.  <br /></td></tr>
 <tr class="separator:a4c3cc0b2fc9625237d003b044b35176c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a367827780e1e37961a676835030ea5cf"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer.html#a367827780e1e37961a676835030ea5cf">verifyHashMatch</a> (String hash, String salt, String plaintextPassword)</td></tr>
+<tr class="memdesc:a367827780e1e37961a676835030ea5cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies if the provided plaintext password matches the stored hash and salt.  <br /></td></tr>
 <tr class="separator:a367827780e1e37961a676835030ea5cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class provides methods for password hashing and verification using SHA-512 algorithm. </p>
+<p>The Authorizer class is responsible for generating salted/hashed passwords and verifying if a provided plaintext password matches a stored hash. It uses the SHA-512 algorithm for computing the hashes.</p>
+<p>For more information about SHA-2 and the SHA-512 algorithm, please refer to the Wikipedia page: <a href="https://en.wikipedia.org/wiki/SHA-2">https://en.wikipedia.org/wiki/SHA-2</a> </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac11c919af7a369b98c52e64eeed2662c" name="ac11c919af7a369b98c52e64eeed2662c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac11c919af7a369b98c52e64eeed2662c">&#9670;&#160;</a></span>Authorizer()</h2>
 
@@ -142,7 +152,7 @@ Public Member Functions</h2></td></tr>
 <p>Overloaded constructor takes a String as input to allow testing of the exception handling within the computeHash method</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">algorithm</td><td>The name of the algorithm that MessageDigest will use to compute hashes </td></tr>
+    <tr><td class="paramname">algorithm</td><td>The name of the algorithm that MessageDigest will use to compute hashes Linked Issue: #32 <a href="https://github.com/WSUCEG-7140/TeamF/issues/32">https://github.com/WSUCEG-7140/TeamF/issues/32</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -183,9 +193,10 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A hash of the password and salt </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A hash of the password and salt</dd></dl>
+<p>Linked Issue: #32 <a href="https://github.com/WSUCEG-7140/TeamF/issues/32">https://github.com/WSUCEG-7140/TeamF/issues/32</a> </p>
 
-<p>Implements <a class="el" href="interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer.html">WrightFlightManager.SECURITY.iAuthorizer</a>.</p>
+<p>Implements <a class="el" href="interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer.html#a662b1cf83ff529123a89cebc082441de">WrightFlightManager.SECURITY.iAuthorizer</a>.</p>
 
 </div>
 </div>
@@ -208,12 +219,13 @@ Public Member Functions</h2></td></tr>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">NoSuchAlgorithmException</td><td>Occurs if the salt generation algorithm is missing </td></tr>
-    <tr><td class="paramname">NoSuchProviderException</td><td>Occurs if the algorithm provider is missing </td></tr>
+    <tr><td class="paramname">NoSuchProviderException</td><td>Occurs if the algorithm provider is missing</td></tr>
   </table>
   </dd>
 </dl>
+<p>Linked Issue: #32 <a href="https://github.com/WSUCEG-7140/TeamF/issues/32">https://github.com/WSUCEG-7140/TeamF/issues/32</a> </p>
 
-<p>Implements <a class="el" href="interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer.html">WrightFlightManager.SECURITY.iAuthorizer</a>.</p>
+<p>Implements <a class="el" href="interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer.html#a4c3cc0b2fc9625237d003b044b35176c">WrightFlightManager.SECURITY.iAuthorizer</a>.</p>
 
 </div>
 </div>
@@ -257,14 +269,15 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Boolean value representing if the password's hash matches the hash for the stored password </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Boolean value representing if the password's hash matches the hash for the stored password</dd></dl>
+<p>Linked Issue: #32 <a href="https://github.com/WSUCEG-7140/TeamF/issues/32">https://github.com/WSUCEG-7140/TeamF/issues/32</a> </p>
 
-<p>Implements <a class="el" href="interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer.html">WrightFlightManager.SECURITY.iAuthorizer</a>.</p>
+<p>Implements <a class="el" href="interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer.html#a367827780e1e37961a676835030ea5cf">WrightFlightManager.SECURITY.iAuthorizer</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/Users/briandavis/Documents/Wright State/CS7140/TeamF/src/main/java/WrightFlightManager/SECURITY/Authorizer.java</li>
+<li>main/java/WrightFlightManager/SECURITY/Authorizer.java</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

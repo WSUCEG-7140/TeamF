@@ -27,7 +27,7 @@
   <td id="projectalign">
    <div id="projectname">WrightFlightManager
    </div>
-   <div id="projectbrief">Airline Control System</div>
+   <div id="projectbrief">This project models an airline control system to manage passengers, baggage, and flight attendants traveling via the airline.</div>
   </td>
  </tr>
  </tbody>
@@ -96,26 +96,35 @@ $(document).ready(function(){initNavTree('interface_wright_flight_manager_1_1_s_
   <div class="headertitle"><div class="title">WrightFlightManager.SECURITY.iAuthorizer Interface Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This interface defines the contract for password hashing and verification operations.  
+ <a href="interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for WrightFlightManager.SECURITY.iAuthorizer:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer.png" usemap="#WrightFlightManager.SECURITY.iAuthorizer_map" alt=""/>
   <map id="WrightFlightManager.SECURITY.iAuthorizer_map" name="WrightFlightManager.SECURITY.iAuthorizer_map">
-<area href="class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer.html" alt="WrightFlightManager.SECURITY.Authorizer" shape="rect" coords="0,56,260,80"/>
+<area href="class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer.html" title="This class provides methods for password hashing and verification using SHA-512 algorithm." alt="WrightFlightManager.SECURITY.Authorizer" shape="rect" coords="0,56,260,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a662b1cf83ff529123a89cebc082441de"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer.html#a662b1cf83ff529123a89cebc082441de">computeHash</a> (String plaintextPassword, String salt)</td></tr>
+<tr class="memdesc:a662b1cf83ff529123a89cebc082441de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a salted/hashed password based on the plaintext password and the salt.  <br /></td></tr>
 <tr class="separator:a662b1cf83ff529123a89cebc082441de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c3cc0b2fc9625237d003b044b35176c"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer.html#a4c3cc0b2fc9625237d003b044b35176c">createSalt</a> ()  throws NoSuchAlgorithmException, NoSuchProviderException</td></tr>
+<tr class="memdesc:a4c3cc0b2fc9625237d003b044b35176c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random salt as an array of random integers and casts it to a String.  <br /></td></tr>
 <tr class="separator:a4c3cc0b2fc9625237d003b044b35176c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a367827780e1e37961a676835030ea5cf"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1i_authorizer.html#a367827780e1e37961a676835030ea5cf">verifyHashMatch</a> (String hash, String salt, String plaintextPassword)</td></tr>
+<tr class="memdesc:a367827780e1e37961a676835030ea5cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies if the provided plaintext password matches the stored hash and salt.  <br /></td></tr>
 <tr class="separator:a367827780e1e37961a676835030ea5cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This interface defines the contract for password hashing and verification operations. </p>
+<p>The iAuthorizer interface provides a set of methods for computing hash values for passwords, generating random salts, and verifying if a provided plaintext password matches a stored hash and salt. Classes that implement this interface are expected to provide concrete implementations for these methods, allowing customized password security mechanisms. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a662b1cf83ff529123a89cebc082441de" name="a662b1cf83ff529123a89cebc082441de"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a662b1cf83ff529123a89cebc082441de">&#9670;&#160;</a></span>computeHash()</h2>
 
@@ -142,6 +151,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Computes a salted/hashed password based on the plaintext password and the salt. </p>
+<p>This method takes a plaintext password and a salt as input and returns a salted/hashed password. The salt is used as an additional input to a one-way function that hashes the password.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plaintextPassword</td><td>The password that the user entered. </td></tr>
+    <tr><td class="paramname">salt</td><td>The salt, a random string of characters, used as an additional input to a one-way function that hashes the password. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A hash of the password and salt. </dd></dl>
+
 <p>Implemented in <a class="el" href="class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer.html#a6a1ea5ad66bd4f3a874563951d83ce0c">WrightFlightManager.SECURITY.Authorizer</a>.</p>
 
 </div>
@@ -160,6 +180,18 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Generates a random salt as an array of random integers and casts it to a String. </p>
+<p>This method generates a random salt to be used in password hashing. The salt is typically a random string of characters that adds randomness to the hash, making it more secure against various attacks.</p>
+<dl class="section note"><dt>Note</dt><dd>The specific algorithm and provider used for salt generation may depend on the implementation. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The random salt values as a String. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">NoSuchAlgorithmException</td><td>Occurs if the salt generation algorithm is missing. </td></tr>
+    <tr><td class="paramname">NoSuchProviderException</td><td>Occurs if the algorithm provider is missing. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer.html#a775be26fd7b8bb1c08f4303e88e740d1">WrightFlightManager.SECURITY.Authorizer</a>.</p>
 
@@ -197,12 +229,24 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Verifies if the provided plaintext password matches the stored hash and salt. </p>
+<p>This method takes a stored hash, a stored salt, and a user-provided plaintext password as input. It computes the hash for the provided password using the stored salt and then compares it with the stored hash to determine if they match.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hash</td><td>The hash stored in a local file or database. </td></tr>
+    <tr><td class="paramname">salt</td><td>The salt stored in a local file or database. </td></tr>
+    <tr><td class="paramname">plaintextPassword</td><td>The password provided by a user. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean value representing if the password's hash matches the hash for the stored password. </dd></dl>
+
 <p>Implemented in <a class="el" href="class_wright_flight_manager_1_1_s_e_c_u_r_i_t_y_1_1_authorizer.html#ada0680795a1fb636dc0e886512b06e6f">WrightFlightManager.SECURITY.Authorizer</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
-<li>/Users/briandavis/Documents/Wright State/CS7140/TeamF/src/main/java/WrightFlightManager/SECURITY/iAuthorizer.java</li>
+<li>main/java/WrightFlightManager/SECURITY/iAuthorizer.java</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
