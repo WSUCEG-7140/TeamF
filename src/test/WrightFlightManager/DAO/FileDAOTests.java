@@ -19,6 +19,24 @@ class FileDAOTests {
     iUserDAO errorUserDAO = new UserFileDAO("BADFILEPATH/BADFILE.psv");
 
     @Test
+    void addNewUser() {
+        User newUser = new User(
+                "testuser",
+                "asdf",
+                "asdf",
+                new Role(1, "Passenger"),
+                "test",
+                "user",
+                "123 NOWHERE ROAD",
+                "Columbus",
+                "Ohio",
+                "12345",
+                "555-555-5555",
+                "email@address.com");
+        assertTrue(userDAO.addNewUser(newUser));
+        assertFalse(userDAO.addNewUser(newUser));
+    }
+    @Test
     void getAllUsers() {
         HashMap<String, User> defaultUsers = defaultUserDAO.getAllUsers();
         HashMap<String, User> allUsers = userDAO.getAllUsers();

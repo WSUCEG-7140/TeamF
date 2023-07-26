@@ -3,6 +3,7 @@ package WrightFlightManager.DAO;
 import WrightFlightManager.MODEL.Role;
 import WrightFlightManager.MODEL.User;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
@@ -55,12 +56,21 @@ public class UserFileDAO implements iUserDAO {
      * <p>
      * This method is responsible for adding a new user to the data storage system.
      * The user information is obtained from the provided User object.
+     * Linked Issue: #47 https://github.com/WSUCEG-7140/TeamF/issues/47
      * @param newUser The User object representing the new user to be added.
      * @return True if the user is successfully added, false otherwise.
      */
     @Override
     public boolean addNewUser(User newUser) {
-        return false;
+        boolean addSuccessful = false;
+        boolean foundInHashMap = isUserInFile(newUser);
+
+        if (!foundInHashMap) {
+            HashMap<String, User> allUsers = getAllUsers();
+            allUsers.put(newUser.getUsername(), newUser);
+            addSuccessful = writeToUsersFile(allUsers);
+        }
+        return addSuccessful;
     }
 
     /**
@@ -68,7 +78,7 @@ public class UserFileDAO implements iUserDAO {
      * <p>
      * This method retrieves all user records from the file-based data storage system and returns them in
      * a HashMap where the key is the user's ID (an integer) and the value is the corresponding User object.
-     * Linked Issue: #69 https://github.com/WSUCEG-7140/TeamF/issues/49
+     * Linked Issue: #49 https://github.com/WSUCEG-7140/TeamF/issues/49
      * @return A HashMap<Integer, User> containing all user records in the data storage system.
      */
     @Override
@@ -156,7 +166,7 @@ public class UserFileDAO implements iUserDAO {
      * <p>
      * The isUserInFile method is a helper method that takes a user as a parameter to check if a that
      * User is in the user file by searching for a match of the username
-     * Linked Issue: #69 https://github.com/WSUCEG-7140/TeamF/issues/49
+     * Linked Issue: #49 https://github.com/WSUCEG-7140/TeamF/issues/49
      * @param checkUser This represents the User being searched for within the file
      * @return          Returns true if the user was found in the file
      */
@@ -173,5 +183,47 @@ public class UserFileDAO implements iUserDAO {
         }
 
         return userFound;
+    }
+
+    /**
+     * @brief Helper method to write over the file specified by the userFileName field with a new list of users.
+     * <p>
+     * The writeToUsersFile is a helper method to write over the file specified by the userFileName
+     * field with a new list of users
+     * Linked Issue: #47 https://github.com/WSUCEG-7140/TeamF/issues/47
+     * @param updatedUsers  This represents the new list of roles to be written to the roles file
+     * @return              Returns true if successfully written to roles file
+     */
+    private boolean writeToUsersFile(HashMap<String, User> updatedUsers) {
+        boolean writeSuccessful = false;
+
+        try {
+            Path filePath = Path.of(userFileName);
+            FileWriter fw = new FileWriter(filePath.toFile(), false);
+            for (Map.Entry<String, User> entry : updatedUsers.entrySet()) {
+                User temp = entry.getValue();
+                StringBuilder sb = new StringBuilder();
+                sb.append(temp.getUsername()).append("|");
+                sb.append(temp.getPasswordHash()).append("|");
+                sb.append(temp.getPasswordSalt()).append("|");
+                sb.append(temp.getUserRole().getRoleId()).append("|");
+                sb.append(temp.getFirstName()).append("|");
+                sb.append(temp.getLastName()).append("|");
+                sb.append(temp.getStreetAddress()).append("|");
+                sb.append(temp.getCity()).append("|");
+                sb.append(temp.getState()).append("|");
+                sb.append(temp.getZipcode()).append("|");
+                sb.append(temp.getPhoneNumber()).append("|");
+                sb.append(temp.getEmailAddress()).append("\n");
+                fw.write(sb.toString());
+            }
+            fw.flush();
+            fw.close();
+            writeSuccessful = true;
+        } catch (IOException e) {
+            // Ignored
+        }
+
+        return writeSuccessful;
     }
 }
