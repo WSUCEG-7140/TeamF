@@ -33,7 +33,7 @@ public interface iUserDAO {
      *
      * @return A HashMap<Integer, User> containing all user records in the data storage system.
      */
-    HashMap<Integer, User> getAllUsers();
+    HashMap<String, User> getAllUsers();
 
     /**
      * @brief Updates an existing user's information in the data storage system.
