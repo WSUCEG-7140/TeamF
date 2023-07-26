@@ -10,6 +10,15 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * The RoleFileDAO class implements the iRoleDAO interface to manage data related to the "Role" entity
+ * using a file-based storage system. It represents the Data Access Object (DAO) pattern in the context
+ * of managing roles.
+ *
+ * For more information about the Data Access Object (DAO) pattern, please refer to
+ * the Wikipedia page:
+ * @ref https://en.wikipedia.org/wiki/Data_access_object
+ */
 public class RoleFileDAO implements iRoleDAO {
 
     private final String roleFileName;
@@ -17,6 +26,8 @@ public class RoleFileDAO implements iRoleDAO {
     /**
      * The default (non-parameterized) constructor sets the path to the Roles.psv file to a
      * standard location with the FILES directory
+     *
+     * Linked Issue: #65 https://github.com/WSUCEG-7140/TeamF/issues/65
      */
     public RoleFileDAO() {
         roleFileName = "src/main/java/WrightFlightManager/FILES/Roles.psv";
@@ -25,6 +36,8 @@ public class RoleFileDAO implements iRoleDAO {
     /**
      * The parameterized constructor sets the path to the Roles.psv to a user-specified location
      * @param roleFileName  A String representing a user-specified path to the Roles.psv file
+     *
+     * Linked Issue: #65 https://github.com/WSUCEG-7140/TeamF/issues/65
      */
     public RoleFileDAO(String roleFileName) {
         this.roleFileName = roleFileName;
@@ -36,6 +49,8 @@ public class RoleFileDAO implements iRoleDAO {
      * @param newRole   A role representing the new role to add to the file
      * @return          A boolean value representing whether the Role was successfully added to
      *                  the file
+     *
+     * Linked Issue: #66 https://github.com/WSUCEG-7140/TeamF/issues/66
      */
     public boolean addNewRole(Role newRole) {
         boolean addSuccessful = false;
@@ -52,6 +67,8 @@ public class RoleFileDAO implements iRoleDAO {
     /**
      * The getAllRoles method takes no parameters and returns all roles in the file as Role objects
      * @return  A HashMap that uses the roleId (Integer) as keys and the Role (object) as values
+     *
+     * Linked Issue: #67 https://github.com/WSUCEG-7140/TeamF/issues/67
      */
     public HashMap<Integer, Role> getAllRoles() {
         HashMap<Integer, Role> allRoles = new HashMap<>();
@@ -81,6 +98,8 @@ public class RoleFileDAO implements iRoleDAO {
      * @param updatedRole   A Role representing the Role to be updated
      * @return              A boolean value representing whether the specified Role was successfully
      *                      updated in the file
+     *
+     * Linked Issue: #68 https://github.com/WSUCEG-7140/TeamF/issues/68
      */
     public boolean updateRole(Role updatedRole) {
         boolean updateSuccessful = false;
@@ -98,6 +117,8 @@ public class RoleFileDAO implements iRoleDAO {
      * @param roleToDelete  A Role representing the Role to be deleted from the file
      * @return              A boolean value representing whether the specified Role was successfully
      *                      deleted from the file
+     *
+     * Linked Issue: #69 https://github.com/WSUCEG-7140/TeamF/issues/69
      */
     public boolean deleteRole(Role roleToDelete) {
         boolean deleteSuccessful = false;
