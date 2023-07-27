@@ -2,6 +2,7 @@ package WrightFlightManager.DAO;
 
 import WrightFlightManager.MODEL.Flight;
 import WrightFlightManager.MODEL.Role;
+import WrightFlightManager.MODEL.User;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -71,7 +72,15 @@ public class FlightFileDAO implements iFlightDAO {
      */
     @Override
     public boolean addNewFlight(Flight newFlight) {
-        return false;
+        boolean addSuccessful = false;
+        boolean foundInHashMap = isFlightInFile(newFlight);
+
+        if (!foundInHashMap) {
+            HashMap<String, Flight> allFlights = getAllFlights();
+            allFlights.put(newFlight.getFlightNumber(), newFlight);
+            addSuccessful = writeToFlightsFile(allFlights);
+        }
+        return addSuccessful;
     }
 
     /**
