@@ -6,6 +6,17 @@ import java.security.NoSuchProviderException;
 import java.security.SecureRandom;
 import java.util.Arrays;
 
+/**
+ * @class Authorizer
+ * @brief This class provides methods for password hashing and verification using SHA-512 algorithm.
+ *
+ * The Authorizer class is responsible for generating salted/hashed passwords and verifying
+ * if a provided plaintext password matches a stored hash. It uses the SHA-512 algorithm for
+ * computing the hashes.
+ *
+ * For more information about SHA-2 and the SHA-512 algorithm, please refer to the Wikipedia page:
+ * @ref https://en.wikipedia.org/wiki/SHA-2
+ */
 public class Authorizer implements iAuthorizer {
 
     private final String algorithm;
@@ -20,6 +31,7 @@ public class Authorizer implements iAuthorizer {
      *
      * @param algorithm         The name of the algorithm that MessageDigest will use
      *                          to compute hashes
+     * Linked Issue: #32 https://github.com/WSUCEG-7140/TeamF/issues/32
      */
     public Authorizer(String algorithm) {
         this.algorithm = algorithm;
@@ -35,6 +47,8 @@ public class Authorizer implements iAuthorizer {
      *                          one-way function that hashes a password or
      *                          passphrase.
      * @return A hash of the password and salt
+     *
+     * Linked Issue: #32 https://github.com/WSUCEG-7140/TeamF/issues/32
      */
     public String computeHash(String plaintextPassword, String salt) {
         String computedHash = null;
@@ -73,6 +87,8 @@ public class Authorizer implements iAuthorizer {
      * @return The random salt values
      * @throws NoSuchAlgorithmException Occurs if the salt generation algorithm is missing
      * @throws NoSuchProviderException Occurs if the algorithm provider is missing
+     *
+     * Linked Issue: #32 https://github.com/WSUCEG-7140/TeamF/issues/32
      */
     public String createSalt() throws NoSuchAlgorithmException, NoSuchProviderException {
 
@@ -99,6 +115,8 @@ public class Authorizer implements iAuthorizer {
      * @param plaintextPassword A password provided by a user.
      * @return                  Boolean value representing if the password's hash matches the
      *                          hash for the stored password
+     *
+     * Linked Issue: #32 https://github.com/WSUCEG-7140/TeamF/issues/32
      */
     public boolean verifyHashMatch(String storedHash, String storedSalt, String plaintextPassword) {
         return storedHash.equals(computeHash(plaintextPassword, storedSalt));

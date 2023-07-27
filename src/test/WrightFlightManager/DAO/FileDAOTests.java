@@ -1,18 +1,112 @@
 package WrightFlightManager.DAO;
 
 import WrightFlightManager.MODEL.Role;
+import WrightFlightManager.MODEL.User;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class FileDAOTests {
 
-    iRoleDAO defaultDAO = new RoleFileDAO();
+    iRoleDAO defaultRoleDAO = new RoleFileDAO();
     iRoleDAO roleDAO = new RoleFileDAO("src/main/java/WrightFlightManager/FILES/_Roles_TEST.psv");
-    iRoleDAO errorDAO = new RoleFileDAO("BADFILEPATH/BADFILE.psv");
+    iRoleDAO errorRoleDAO = new RoleFileDAO("BADFILEPATH/BADFILE.psv");
+
+    iUserDAO defaultUserDAO = new UserFileDAO();
+    iUserDAO userDAO = new UserFileDAO("src/main/java/WrightFlightManager/FILES/_Users_TEST.psv");
+    iUserDAO errorUserDAO = new UserFileDAO("BADFILEPATH/BADFILE.psv");
+
+    @Test
+    void addNewUser() {
+        User newUser = new User(
+                "testuser",
+                "asdf",
+                "asdf",
+                new Role(1, "Passenger"),
+                "test",
+                "user",
+                "123 NOWHERE ROAD",
+                "Columbus",
+                "Ohio",
+                "12345",
+                "555-555-5555",
+                "email@address.com");
+        assertTrue(userDAO.addNewUser(newUser));
+        assertFalse(userDAO.addNewUser(newUser));
+    }
+    @Test
+    void getAllUsers() {
+        HashMap<String, User> defaultUsers = defaultUserDAO.getAllUsers();
+        HashMap<String, User> allUsers = userDAO.getAllUsers();
+        assertTrue(defaultUsers.size() > 0);
+        assertTrue(allUsers.size() > 0);
+    }
+
+    @Test
+    void updateUser() {
+        User updatedUser = new User(
+                "testuser",
+                "zzzz",
+                "xxxx",
+                new Role(1, "Passenger"),
+                "test",
+                "user",
+                "123 NOWHERE ROAD",
+                "Columbus",
+                "Ohio",
+                "12345",
+                "555-555-5555",
+                "email@address.com");
+        User fakeUser = new User(
+                "batman",
+                "zzzz",
+                "xxxx",
+                new Role(1, "Passenger"),
+                "test",
+                "user",
+                "123 NOWHERE ROAD",
+                "Columbus",
+                "Ohio",
+                "12345",
+                "555-555-5555",
+                "email@address.com");
+        assertTrue(userDAO.updateUser(updatedUser));
+        assertFalse(userDAO.updateUser(fakeUser));
+    }
+
+    @Test
+    void deleteUser() {
+        User userToDelete = new User(
+                "testuser",
+                "asdf",
+                "asdf",
+                new Role(1, "Passenger"),
+                "test",
+                "user",
+                "123 NOWHERE ROAD",
+                "Columbus",
+                "Ohio",
+                "12345",
+                "555-555-5555",
+                "email@address.com");
+        User userToDelete2 = new User(
+                "testuser",
+                "asdf",
+                "asdf",
+                new Role(1, "Passenger"),
+                "test",
+                "user",
+                "123 NOWHERE ROAD",
+                "Columbus",
+                "Ohio",
+                "12345",
+                "555-555-5555",
+                "email@address.com");
+        assertTrue(userDAO.deleteUser((userToDelete)));
+        assertFalse(userDAO.deleteUser(userToDelete2));
+    }
 
     @Test
     void addNewRole() {
@@ -29,7 +123,7 @@ class FileDAOTests {
 
     @Test
     void getAllRoles() {
-        HashMap<Integer, Role> defaultRoles = roleDAO.getAllRoles();
+        HashMap<Integer, Role> defaultRoles = defaultRoleDAO.getAllRoles();
         HashMap<Integer, Role> allRoles = roleDAO.getAllRoles();
         assertTrue(defaultRoles.size() > 0);
         assertTrue(allRoles.size() > 0);

@@ -10,20 +10,37 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * @class RoleFileDAO
+ * @brief This class defines the file-based implementation for managing roles using a data access
+ * object (DAO) approach.
+ *
+ * The RoleFileDAO class implements the iRoleDAO interface to manage data related to the "Role" entity
+ * using a file-based storage system. It represents the Data Access Object (DAO) pattern in the context
+ * of managing roles.
+ *
+ * For more information about the Data Access Object (DAO) pattern, please refer to
+ * the Wikipedia page:
+ * @ref https://en.wikipedia.org/wiki/Data_access_object
+ */
 public class RoleFileDAO implements iRoleDAO {
 
     private final String roleFileName;
 
     /**
-     * The default (non-parameterized) constructor sets the path to the Roles.psv file to a
+     * @brief The default (non-parameterized) constructor sets the path to the Roles.psv file to a
      * standard location with the FILES directory
+     * <p>
+     * Linked Issue: #65 https://github.com/WSUCEG-7140/TeamF/issues/65
      */
     public RoleFileDAO() {
         roleFileName = "src/main/java/WrightFlightManager/FILES/Roles.psv";
     }
 
     /**
-     * The parameterized constructor sets the path to the Roles.psv to a user-specified location
+     * @brief The parameterized constructor sets the path to the Roles.psv to a user-specified location
+     * <p>
+     * Linked Issue: #65 https://github.com/WSUCEG-7140/TeamF/issues/65
      * @param roleFileName  A String representing a user-specified path to the Roles.psv file
      */
     public RoleFileDAO(String roleFileName) {
@@ -31,11 +48,16 @@ public class RoleFileDAO implements iRoleDAO {
     }
 
     /**
+     * @brief Adds a new Role to the roles contained in the Roles.psv file if it does not already exist.
+     * <p>
      * The addNewRole method takes a new Role as a parameter and adds it to the roles contained in
      * the Roles.psv file if that role ID and role title are not already in the file
+     * <p>
+     * Linked Issue: #66 https://github.com/WSUCEG-7140/TeamF/issues/66
      * @param newRole   A role representing the new role to add to the file
      * @return          A boolean value representing whether the Role was successfully added to
      *                  the file
+     *
      */
     public boolean addNewRole(Role newRole) {
         boolean addSuccessful = false;
@@ -50,7 +72,11 @@ public class RoleFileDAO implements iRoleDAO {
     }
 
     /**
+     * @brief Retrieves all roles from the file as Role objects.
+     * <p>
      * The getAllRoles method takes no parameters and returns all roles in the file as Role objects
+     * <p>
+     * Linked Issue: #67 https://github.com/WSUCEG-7140/TeamF/issues/67
      * @return  A HashMap that uses the roleId (Integer) as keys and the Role (object) as values
      */
     public HashMap<Integer, Role> getAllRoles() {
@@ -76,8 +102,12 @@ public class RoleFileDAO implements iRoleDAO {
     }
 
     /**
+     * @brief Updates the specified Role in the file.
+     * <p>
      * The updateRole method takes a Role as a parameter to update either the role ID or the role title,
      * but cannot update both the role ID AND role title for a specified role in the Roles.psv file
+     * <p>
+     * Linked Issue: #68 https://github.com/WSUCEG-7140/TeamF/issues/68
      * @param updatedRole   A Role representing the Role to be updated
      * @return              A boolean value representing whether the specified Role was successfully
      *                      updated in the file
@@ -93,8 +123,12 @@ public class RoleFileDAO implements iRoleDAO {
     }
 
     /**
+     * @brief Deletes the specified Role from the Roles.psv file if it exists.
+     * <p>
      * The deleteRole method takes a Role as a parameter and deletes it from the Roles.psv file if it
      * exists
+     * <p>
+     * Linked Issue: #69 https://github.com/WSUCEG-7140/TeamF/issues/69
      * @param roleToDelete  A Role representing the Role to be deleted from the file
      * @return              A boolean value representing whether the specified Role was successfully
      *                      deleted from the file
@@ -124,8 +158,11 @@ public class RoleFileDAO implements iRoleDAO {
     }
 
     /**
+     * @brief Helper method to check if a Role is in the role file.
+     * <p>
      * The isRoleInFile method is a helper method that takes a role as a parameter to check if a that
      * Role is in the role file by searching for a match of the role ID number OR the role title
+     * Linked Issue: #69 https://github.com/WSUCEG-7140/TeamF/issues/69
      * @param checkRole This represents the Role being searched for within the file
      * @return          Returns true if the role was found in the file
      */
@@ -149,8 +186,11 @@ public class RoleFileDAO implements iRoleDAO {
     }
 
     /**
+     * @brief Helper method to write over the file specified by the roleFileName field with a new list of roles.
+     * <p>
      * The writeToRolesFile is a helper method to write over the file specified by the roleFileName
      * field with a new list of roles
+     * Linked Issue: #69 https://github.com/WSUCEG-7140/TeamF/issues/69
      * @param updatedRoles  This represents the new list of roles to be written to the roles file
      * @return              Returns true if successfully written to roles file
      */
