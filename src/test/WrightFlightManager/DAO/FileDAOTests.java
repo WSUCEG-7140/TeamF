@@ -15,25 +15,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class FileDAOTests {
 
     iFlightDAO defaultFlightDAO = new FlightFileDAO();
-    iFlightDAO flightDAO = new
-            FlightFileDAO("src/main/java/WrightFlightManager/FILES/_Flights_TEST.psv");
-    iFlightDAO errorFlightDAO = new
-            FlightFileDAO("BADFILEPATH/BADFILE.psv");
+    iFlightDAO flightDAO = new FlightFileDAO("src/main/java/WrightFlightManager/FILES/_Flights_TEST.psv");
+    iFlightDAO errorFlightDAO = new FlightFileDAO("BADFILEPATH/BADFILE.psv");
 
     iRoleDAO defaultRoleDAO = new RoleFileDAO();
-    iRoleDAO roleDAO = new
-            RoleFileDAO("src/main/java/WrightFlightManager/FILES/_Roles_TEST.psv");
+    iRoleDAO roleDAO = new RoleFileDAO("src/main/java/WrightFlightManager/FILES/_Roles_TEST.psv");
     iRoleDAO errorRoleDAO = new RoleFileDAO("BADFILEPATH/BADFILE.psv");
 
     iUserDAO defaultUserDAO = new UserFileDAO();
-    iUserDAO userDAO = new
-            UserFileDAO("src/main/java/WrightFlightManager/FILES/_Users_TEST.psv");
+    iUserDAO userDAO = new UserFileDAO("src/main/java/WrightFlightManager/FILES/_Users_TEST.psv");
     iUserDAO errorUserDAO = new UserFileDAO("BADFILEPATH/BADFILE.psv");
 
     @Test
     void testIOExceptionThrown() throws IOException {
-        iFlightDAO exceptionDAO = new
-                FlightFileDAO("BADFILEPATH/BADFILE.psv");
+        iFlightDAO exceptionDAO = new FlightFileDAO("BADFILEPATH/BADFILE.psv");
     }
 
     @Test

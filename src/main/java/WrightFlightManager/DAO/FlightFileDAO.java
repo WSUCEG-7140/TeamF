@@ -6,10 +6,9 @@ import WrightFlightManager.MODEL.Role;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @class FlightFileDAO
@@ -185,7 +184,27 @@ public class FlightFileDAO implements iFlightDAO {
      */
     @Override
     public boolean deleteFlight(Flight flightToDelete) {
-        return false;
+        boolean deleteSuccessful = false;
+        boolean removedFromHashMap = false;
+
+        HashMap<String, Flight> allFlights = getAllFlights();
+
+        Iterator<Map.Entry<String, Flight>> itr = allFlights.entrySet().iterator();
+
+        while(itr.hasNext())
+        {
+            Map.Entry<String, Flight> entry = itr.next();
+            if (entry.getKey().equals(flightToDelete.getFlightNumber())) {
+                itr.remove();
+                removedFromHashMap = true;
+            }
+        }
+        if (removedFromHashMap) {
+            deleteSuccessful = writeToFlightsFile(allFlights);
+        }
+
+
+        return deleteSuccessful;
     }
 
     /**
@@ -231,6 +250,8 @@ public class FlightFileDAO implements iFlightDAO {
         boolean writeSuccessful = false;
 
         try {
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+
             Path filePath = Path.of(flightFileName);
             FileWriter fw = new FileWriter(filePath.toFile(), false);
             for (Map.Entry<String, Flight> entry : updatedFlights.entrySet()) {
@@ -240,10 +261,14 @@ public class FlightFileDAO implements iFlightDAO {
                 sb.append(temp.getOriginAirport()).append("|");
                 sb.append(temp.getDestinationAirport()).append("|");
                 sb.append(temp.getPlaneType()).append("|");
-                sb.append(temp.getPlannedDeparture()).append("|");
-                sb.append(temp.getPlannedArrival()).append("|");
-                sb.append(temp.getActualDeparture()).append("|");
-                sb.append(temp.getActualArrival()).append("|");
+                String plannedDeparture = (temp.getPlannedDeparture() == null) ? "" : dateFormat.format(temp.getPlannedDeparture());
+                sb.append(plannedDeparture).append("|");
+                String plannedArrival = (temp.getPlannedArrival() == null) ? "" : dateFormat.format(temp.getPlannedArrival());
+                sb.append(plannedArrival).append("|");
+                String actualDeparture = (temp.getActualDeparture() == null) ? "" : dateFormat.format(temp.getActualDeparture());
+                sb.append(actualDeparture).append("|");
+                String actualArrival = (temp.getActualArrival() == null) ? "" : dateFormat.format(temp.getActualArrival());
+                sb.append(actualArrival).append("|");
                 sb.append(temp.getDepartureGate()).append("|");
                 sb.append(temp.getArrivalGate()).append("|");
                 sb.append(temp.getFirstClassSeatsFilled()).append("|");
@@ -263,15 +288,11 @@ public class FlightFileDAO implements iFlightDAO {
     /**
      * @brief Parses a date from a string representation.
      * <p>
-     * This helper method takes a date string in the format "yyyy-MM-dd
-    HH:mm:ss" and converts it into a
-     * Date object. The expected input format for the date string is
-    "yyyy-MM-dd HH:mm:ss". If the input date
+     * This helper method takes a date string in the format "yyyy-MM-ddHH:mm:ss" and converts it into a
+     * Date object. The expected input format for the date string is"yyyy-MM-dd HH:mm:ss". If the input date
      * string is empty or null, the method will return null.
-     * @param dateToParse The date string to be parsed in the format
-    "yyyy-MM-dd HH:mm:ss".
-     * @return A Date object representing the parsed date, or null if the
-    input date string is empty or null.
+     * @param dateToParse The date string to be parsed in the format"yyyy-MM-dd HH:mm:ss".
+     * @return A Date object representing the parsed date, or null if the input date string is empty or null.
      */
     private Date parseDateFromString(String dateToParse) {
 
