@@ -3,10 +3,12 @@ package WrightFlightManager.DAO;
 import WrightFlightManager.MODEL.Flight;
 import WrightFlightManager.MODEL.Role;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -199,7 +201,17 @@ public class FlightFileDAO implements iFlightDAO {
      * @return Returns true if the flight was found in the file
      */
     private boolean isFlightInFile(Flight checkFlight) {
-        return false;
+        boolean flightFound = false;
+        HashMap<String, Flight> allFlights = getAllFlights();
+
+        for(Map.Entry<String, Flight> entry : allFlights.entrySet()) {
+            if (entry.getKey().equals(checkFlight.getFlightNumber())) {
+                flightFound = true;
+                break;
+            }
+        }
+
+        return flightFound;
     }
 
     /**
@@ -215,9 +227,37 @@ public class FlightFileDAO implements iFlightDAO {
     written to the flights file
      * @return Returns true if successfully written to flights file
      */
-    private boolean writeToFlightsFile(HashMap<String, Flight>
-                                               updatedFlights) {
-        return false;
+    private boolean writeToFlightsFile(HashMap<String, Flight> updatedFlights) {
+        boolean writeSuccessful = false;
+
+        try {
+            Path filePath = Path.of(flightFileName);
+            FileWriter fw = new FileWriter(filePath.toFile(), false);
+            for (Map.Entry<String, Flight> entry : updatedFlights.entrySet()) {
+                Flight temp = entry.getValue();
+                StringBuilder sb = new StringBuilder();
+                sb.append(temp.getFlightNumber()).append("|");
+                sb.append(temp.getOriginAirport()).append("|");
+                sb.append(temp.getDestinationAirport()).append("|");
+                sb.append(temp.getPlaneType()).append("|");
+                sb.append(temp.getPlannedDeparture()).append("|");
+                sb.append(temp.getPlannedArrival()).append("|");
+                sb.append(temp.getActualDeparture()).append("|");
+                sb.append(temp.getActualArrival()).append("|");
+                sb.append(temp.getDepartureGate()).append("|");
+                sb.append(temp.getArrivalGate()).append("|");
+                sb.append(temp.getFirstClassSeatsFilled()).append("|");
+                sb.append(temp.getCoachClassSeatsFilled()).append("\n");
+                fw.write(sb.toString());
+            }
+            fw.flush();
+            fw.close();
+            writeSuccessful = true;
+        } catch (IOException e) {
+            // Ignored
+        }
+
+        return writeSuccessful;
     }
 
     /**
