@@ -2,7 +2,6 @@ package WrightFlightManager.DAO;
 
 import WrightFlightManager.MODEL.Flight;
 import WrightFlightManager.MODEL.Role;
-import WrightFlightManager.MODEL.User;
 
 import java.io.IOException;
 import java.nio.file.Path;
