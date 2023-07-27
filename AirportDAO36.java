@@ -1,15 +1,20 @@
 //Issue 36
-import WrightFlightManager.MODEL.Airport;
+/**
+ * @file
+ * @brief AirportDAO class provides methods to read and add Airport data from/to the "Airports.psv" file.
+ */
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
+/**
+ * @class AirportDAO
+ * @brief The AirportDAO class provides methods to interact with the "Airports.psv" file and manipulate Airport data.
+ */
 public class AirportDAO {
     private static final String FILE_PATH = "Airports.psv";
 
+    /**
+     * @brief Get all airports from the "Airports.psv" file.
+     * @return A list of Airport objects representing all the airports in the file.
+     */
     public List<Airport> getAllAirports() {
         List<Airport> airports = new ArrayList<>();
 
@@ -29,8 +34,12 @@ public class AirportDAO {
 
         return airports;
     }
-	
-	 public void addAirport(Airport airport) {
+
+    /**
+     * @brief Add a new airport to the "Airports.psv" file.
+     * @param airport The Airport object representing the airport to be added.
+     */
+    public void addAirport(Airport airport) {
         try (FileWriter writer = new FileWriter(FILE_PATH, true)) {
             String line = airport.getAirportID() + "|" + airport.getAirportName() + "\n";
             writer.write(line);
@@ -38,5 +47,4 @@ public class AirportDAO {
             e.printStackTrace();
         }
     }
-
 }
