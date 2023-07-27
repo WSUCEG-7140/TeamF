@@ -5,6 +5,7 @@ import WrightFlightManager.MODEL.Role;
 import WrightFlightManager.MODEL.User;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -14,32 +15,42 @@ import static org.junit.jupiter.api.Assertions.*;
 class FileDAOTests {
 
     iFlightDAO defaultFlightDAO = new FlightFileDAO();
-    iFlightDAO flightDAO = new FlightFileDAO("src/main/java/WrightFlightManager/FILES/_Flights_TEST.psv");
-    iFlightDAO errorFlightDAO = new FlightFileDAO("BADFILEPATH/BADFILE.psv");
+    iFlightDAO flightDAO = new
+            FlightFileDAO("src/main/java/WrightFlightManager/FILES/_Flights_TEST.psv");
+    iFlightDAO errorFlightDAO = new
+            FlightFileDAO("BADFILEPATH/BADFILE.psv");
 
     iRoleDAO defaultRoleDAO = new RoleFileDAO();
-    iRoleDAO roleDAO = new RoleFileDAO("src/main/java/WrightFlightManager/FILES/_Roles_TEST.psv");
+    iRoleDAO roleDAO = new
+            RoleFileDAO("src/main/java/WrightFlightManager/FILES/_Roles_TEST.psv");
     iRoleDAO errorRoleDAO = new RoleFileDAO("BADFILEPATH/BADFILE.psv");
 
     iUserDAO defaultUserDAO = new UserFileDAO();
-    iUserDAO userDAO = new UserFileDAO("src/main/java/WrightFlightManager/FILES/_Users_TEST.psv");
+    iUserDAO userDAO = new
+            UserFileDAO("src/main/java/WrightFlightManager/FILES/_Users_TEST.psv");
     iUserDAO errorUserDAO = new UserFileDAO("BADFILEPATH/BADFILE.psv");
+
+    @Test
+    void testIOExceptionThrown() throws IOException {
+        iFlightDAO exceptionDAO = new
+                FlightFileDAO("BADFILEPATH/BADFILE.psv");
+    }
 
     @Test
     void addNewFlight() {
         Flight newFlight = new Flight(
-        "0000",
-        "XXX",
-        "ZZZ",
-        "S550",
-        new Date(123, 7, 13, 22, 10, 17),
-        new Date((2023 - 1900), 7, 14, 0, 10, 17),
-        new Date(123, 7, 13, 17, 30, 17),
-        new Date(123, 7, 13, 19, 50, 00),
-        "A4",
-        "B2",
-        2,
-        4
+                "0000",
+                "XXX",
+                "ZZZ",
+                "S550",
+                new Date(123, 7, 13, 22, 10, 17),
+                new Date((2023 - 1900), 7, 14, 0, 10, 17),
+                new Date(123, 7, 13, 17, 30, 17),
+                new Date(123, 7, 13, 19, 50, 00),
+                "A4",
+                "B2",
+                2,
+                4
         );
 
         assertTrue(flightDAO.addNewFlight(newFlight));
@@ -47,12 +58,15 @@ class FileDAOTests {
 
     @Test
     void getAllFlights() {
-        HashMap<String, Flight> defaultFlights = defaultFlightDAO.getAllFlights();
+        HashMap<String, Flight> defaultFlights =
+                defaultFlightDAO.getAllFlights();
         HashMap<String, Flight> allFlights = flightDAO.getAllFlights();
-        HashMap<String, Flight> noFlights = errorFlightDAO.getAllFlights();
+        HashMap<String, Flight> noFlights =
+                errorFlightDAO.getAllFlights();
         assertTrue(defaultFlights.size() > 0);
         assertTrue(allFlights.size() > 0);
-        assertNull(noFlights);
+        assertNotNull(noFlights);
+        assertEquals(0, noFlights.size());
     }
 
     @Test
@@ -148,7 +162,8 @@ class FileDAOTests {
         HashMap<String, User> noUsers = errorUserDAO.getAllUsers();
         assertTrue(defaultUsers.size() > 0);
         assertTrue(allUsers.size() > 0);
-        assertNull(noUsers);
+        assertNotNull(noUsers);
+        assertEquals(0, noUsers.size());
     }
 
     @Test
@@ -230,12 +245,14 @@ class FileDAOTests {
 
     @Test
     void getAllRoles() {
-        HashMap<Integer, Role> defaultRoles = defaultRoleDAO.getAllRoles();
+        HashMap<Integer, Role> defaultRoles =
+                defaultRoleDAO.getAllRoles();
         HashMap<Integer, Role> allRoles = roleDAO.getAllRoles();
         HashMap<Integer, Role> noRoles = errorRoleDAO.getAllRoles();
         assertTrue(defaultRoles.size() > 0);
         assertTrue(allRoles.size() > 0);
-        assertNull(noRoles);
+        assertNotNull(noRoles);
+        assertEquals(0, noRoles.size());
     }
 
     @Test
