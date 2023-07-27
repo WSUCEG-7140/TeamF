@@ -6,10 +6,7 @@ import WrightFlightManager.MODEL.Role;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @class FlightFileDAO
@@ -185,7 +182,27 @@ public class FlightFileDAO implements iFlightDAO {
      */
     @Override
     public boolean deleteFlight(Flight flightToDelete) {
-        return false;
+        boolean deleteSuccessful = false;
+        boolean removedFromHashMap = false;
+
+        HashMap<String, Flight> allFlights = getAllFlights();
+
+        Iterator<Map.Entry<String, Flight>> itr = allFlights.entrySet().iterator();
+
+        while(itr.hasNext())
+        {
+            Map.Entry<String, Flight> entry = itr.next();
+            if (entry.getKey().equals(flightToDelete.getFlightNumber())) {
+                itr.remove();
+                removedFromHashMap = true;
+            }
+        }
+        if (removedFromHashMap) {
+            deleteSuccessful = writeToFlightsFile(allFlights);
+        }
+
+
+        return deleteSuccessful;
     }
 
     /**
