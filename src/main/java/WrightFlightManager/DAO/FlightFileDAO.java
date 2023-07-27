@@ -165,7 +165,13 @@ public class FlightFileDAO implements iFlightDAO {
      */
     @Override
     public boolean updateFlight(Flight updatedFlight) {
-        return false;
+        boolean updateSuccessful = false;
+
+        if (deleteFlight(updatedFlight)) {
+            updateSuccessful = addNewFlight(updatedFlight);
+        }
+
+        return updateSuccessful;
     }
 
     /**
