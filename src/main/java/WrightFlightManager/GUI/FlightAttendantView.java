@@ -7,12 +7,6 @@ import java.awt.event.ActionListener;
 
 //change functionality according to available database
 //Issue no 49
-/**
- * @file FlightAttendantView.java
- *
- * @brief Contains the definition of the FlightAttendantView class, which extends JFrame.
- *
- */
 
 /**
  * @class FlightAttendantView
