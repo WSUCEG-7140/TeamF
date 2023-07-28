@@ -4,13 +4,24 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.sql.*;
+/**
+ * @class PassengerViewtoGUI
+ * @brief A graphical user interface (GUI) class representing a window for adding passenger information.
+ * This class extends the JFrame class and implements the ActionListener interface to handle button actions.
+ * It provides a window with input fields to add passenger information such as ID, name, passport number, flight number,
+ * age, and seat number. The user can add a passenger by clicking the "Add" button and clear the input fields by
+ * clicking the "Cancel" button.
+ */
 
 class PassengerViewtoGUI extends JFrame implements ActionListener{
     JLabel l1,l2,l3,l4,l5,l6;
     JTextField t1,t2,t3,t4,t5,t6;
     JButton b1,b2;
     Container con;
-
+    /**
+     * Constructor for the PassengerViewtoGUI class.
+     * Initializes the GUI components, sets the window properties, and makes the window visible.
+     */
     PassengerViewtoGUI()
     {
         super("Passenger View");
@@ -77,6 +88,11 @@ class PassengerViewtoGUI extends JFrame implements ActionListener{
 
         setVisible(true);
     }
+    /**
+     * ActionListener implementation to handle button actions.
+     *
+     * @param ae The ActionEvent representing the button click event.
+     */
 
     public void actionPerformed(ActionEvent ae)
     {
