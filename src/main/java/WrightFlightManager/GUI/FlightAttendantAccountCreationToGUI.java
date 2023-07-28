@@ -8,9 +8,9 @@ import java.awt.event.ActionListener;
 import java.io.FileWriter;
 import java.io.IOException;
 /**
- * @file FlightAttendantAccountCreationToGUI.java
- *
  * @brief This class represents a graphical user interface (GUI) for creating Flight Attendant accounts in a system.
+ * <p>
+ * This class represents a graphical user interface (GUI) for creating Flight Attendant accounts in a system.
  * The class extends JFrame to create a main window for the account creation interface. It contains labels,
  * text fields, a combo box, and a button to capture user inputs for creating a new account. The account
  * information (username, password, and account type) is saved to a file after successful creation.
@@ -26,6 +26,7 @@ public class FlightAttendantAccountCreationToGUI extends JFrame {
     private JButton createButton;
     /**
      * @brief Constructor for the FlightAttendantAccountCreationToGUI class.
+     * <p>
      * Initializes the main frame and creates all the GUI components required for the account creation.
      * It sets the layout, size, and properties of the frame. Action listeners are registered for the
      * "Create Account" button to trigger the account creation process.
