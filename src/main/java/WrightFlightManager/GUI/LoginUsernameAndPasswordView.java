@@ -25,7 +25,6 @@ public class LoginUsernameAndPasswordView extends JFrame {
     private JButton loginButton;
 
     /**
-     * @fn public LoginUsernameAndPasswordView()
      * @brief Constructor for LoginUsernameAndPasswordView class.
      * Initializes the JFrame with username, password fields, and login button.
      * Sets the layout, adds UI components, and sets the window properties.
@@ -84,7 +83,6 @@ public class LoginUsernameAndPasswordView extends JFrame {
     }
 
     /**
-     * @fn private boolean authenticateUser(String username, String password)
      * @brief Authenticates the user's credentials by checking against a user database.
      * This method reads user data from a file ("users.psv") and compares the provided
      * username and password with the stored credentials to perform authentication.
@@ -124,7 +122,6 @@ public class LoginUsernameAndPasswordView extends JFrame {
     }
 
     /**
-     * @fn private boolean isPasswordMatch(String password, String passwordHash, String passwordSalt)
      * @brief Compares the hashed password with the provided password after hashing it.
      * This method hashes the provided password using SHA-256 algorithm with the given salt,
      * then compares the resulting hash with the stored password hash to check for a match.
@@ -139,7 +136,6 @@ public class LoginUsernameAndPasswordView extends JFrame {
     }
 
     /**
-     * @fn private String hashPassword(String password, String salt)
      * @brief Hashes the provided password using the SHA-256 algorithm and the given salt.
      * This method takes a plain password and a salt as input, hashes the password using
      * the SHA-256 algorithm with the provided salt, and returns the resulting hash as a Base64-encoded string.
