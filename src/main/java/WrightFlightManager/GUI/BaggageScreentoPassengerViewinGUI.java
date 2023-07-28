@@ -5,6 +5,11 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.sql.*;
 
+
+/**
+ * @class BaggageScreentoPassengerViewinGUI
+ * @brief Represents a JFrame that displays passenger information and provides baggage scanning functionality.
+ */
 class BaggageScreentoPassengerViewinGUI extends JFrame implements ActionListener {
     JLabel l1, l2, l3, l4, l5, l6;
     JTextField t1, t2, t3, t4, t5, t6;
@@ -12,7 +17,10 @@ class BaggageScreentoPassengerViewinGUI extends JFrame implements ActionListener
     Container con;
     JPanel passengerPanel, baggagePanel;
     CardLayout cardLayout;
-
+    /**
+     * @brief Default constructor for BaggageScreentoPassengerViewinGUI.
+     * Sets up the GUI components and initializes the passenger and baggage panels.
+     */
     BaggageScreentoPassengerViewinGUI() {
         super("Passenger View");
         setSize(500, 540);
@@ -97,6 +105,11 @@ class BaggageScreentoPassengerViewinGUI extends JFrame implements ActionListener
         setVisible(true);
     }
 
+
+    /**
+     * @brief Handles action events for buttons.
+     * @param ae The ActionEvent object representing the user's action.
+     */
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource().equals(b1)) {
             // apply insert command
@@ -124,11 +137,21 @@ class BaggageScreentoPassengerViewinGUI extends JFrame implements ActionListener
     }
 
     // Baggage Screen Panel
+
+    /**
+     * @class BaggageScreenPanel
+     * @brief Represents the BaggageScreenPanel that provides baggage scanning functionality.
+     */
     private class BaggageScreenPanel extends JPanel {
         private JLabel baggageInfoLabel;
         private JTextField baggageNumberField;
         private JButton scanBaggageButton;
 
+
+        /**
+         * @brief Constructor for BaggageScreenPanel.
+         * Sets up the GUI components for baggage scanning.
+         */
         public BaggageScreenPanel() {
             setLayout(new FlowLayout());
 
