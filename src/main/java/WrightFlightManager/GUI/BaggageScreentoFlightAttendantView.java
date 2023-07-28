@@ -6,11 +6,19 @@ import java.awt.event.ActionListener;
 
 //change functionality according to available database
 //Issue no 50
+/**
+ * @class BaggageScreentoFlightAttendantView
+ * @brief Represents the JFrame for the flight attendant's baggage scanning functionality.
+ */
 public class BaggageScreentoFlightAttendantView  extends JFrame {
     private JPanel mainPanel;
     private CardLayout cardLayout;
     private BaggageScreenPanel baggageScreenPanel;
 
+    /**
+     * @brief Default constructor for BaggageScreentoFlightAttendantView.
+     * Sets up the GUI components and initializes the baggage screen panel.
+     */
     public BaggageScreentoFlightAttendantView() {
         setTitle("Flight Control System");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,11 +39,16 @@ public class BaggageScreentoFlightAttendantView  extends JFrame {
 
 
     //create a BaggageScreenPanel
+
     private class BaggageScreenPanel extends JPanel {
         private JLabel baggageInfoLabel;
         private JTextField baggageNumberField;
         private JButton scanBaggageButton;
 
+        /**
+         * @brief Constructor for BaggageScreenPanel.
+         * Sets up the GUI components for baggage scanning.
+         */
         public BaggageScreenPanel() {
             setLayout(new FlowLayout());
 
@@ -52,8 +65,8 @@ public class BaggageScreentoFlightAttendantView  extends JFrame {
                 public void actionPerformed(ActionEvent e) {
                     String baggageNumber = baggageNumberField.getText();
                     /*
-					apply algos as per record
-					*/
+                    apply algorithms or operations on baggageNumber as per your requirements
+                    */
                     // Display message for confirmation
                     JOptionPane.showMessageDialog(BaggageScreenPanel.this,
                             "Baggage scanned: " + baggageNumber,
