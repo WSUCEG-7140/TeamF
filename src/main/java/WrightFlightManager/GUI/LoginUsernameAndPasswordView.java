@@ -11,6 +11,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
+/**
+ * @class LoginUsernameAndPasswordView
+ * @brief Represents a JFrame for user login with username and password fields.
+ * This class provides a graphical user interface for users to enter their
+ * credentials (username and password) and attempt to log in.
+ */
 public class LoginUsernameAndPasswordView extends JFrame {
     private JLabel usernameLabel;
     private JTextField usernameField;
@@ -18,6 +24,13 @@ public class LoginUsernameAndPasswordView extends JFrame {
     private JPasswordField passwordField;
     private JButton loginButton;
 
+    /**
+     * @fn public LoginUsernameAndPasswordView()
+     * @brief Constructor for LoginUsernameAndPasswordView class.
+     * Initializes the JFrame with username, password fields, and login button.
+     * Sets the layout, adds UI components, and sets the window properties.
+     * The login button action listener handles the login process and authentication.
+     */
     public LoginUsernameAndPasswordView() {
         setTitle("Login");
         setLayout(null);
@@ -70,6 +83,15 @@ public class LoginUsernameAndPasswordView extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * @fn private boolean authenticateUser(String username, String password)
+     * @brief Authenticates the user's credentials by checking against a user database.
+     * This method reads user data from a file ("users.psv") and compares the provided
+     * username and password with the stored credentials to perform authentication.
+     * @param username The entered username to be authenticated.
+     * @param password The entered password to be authenticated.
+     * @return true if the username and password match an existing user, false otherwise.
+     */
     private boolean authenticateUser(String username, String password) {
         try (BufferedReader reader = new BufferedReader(new FileReader("users.psv"))) {
             String line;
@@ -101,11 +123,30 @@ public class LoginUsernameAndPasswordView extends JFrame {
         return false;
     }
 
+    /**
+     * @fn private boolean isPasswordMatch(String password, String passwordHash, String passwordSalt)
+     * @brief Compares the hashed password with the provided password after hashing it.
+     * This method hashes the provided password using SHA-256 algorithm with the given salt,
+     * then compares the resulting hash with the stored password hash to check for a match.
+     * @param password The password to be hashed and compared.
+     * @param passwordHash The hashed password retrieved from the user database.
+     * @param passwordSalt The salt used during password hashing.
+     * @return true if the hashed password matches the stored password hash, false otherwise.
+     */
     private boolean isPasswordMatch(String password, String passwordHash, String passwordSalt) {
         String hashedPassword = hashPassword(password, passwordSalt);
         return hashedPassword.equals(passwordHash);
     }
 
+    /**
+     * @fn private String hashPassword(String password, String salt)
+     * @brief Hashes the provided password using the SHA-256 algorithm and the given salt.
+     * This method takes a plain password and a salt as input, hashes the password using
+     * the SHA-256 algorithm with the provided salt, and returns the resulting hash as a Base64-encoded string.
+     * @param password The password to be hashed.
+     * @param salt The salt used during password hashing.
+     * @return The hashed password as a Base64-encoded string.
+     */
     private String hashPassword(String password, String salt) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
